@@ -1,0 +1,15 @@
+form {
+    
+    // background-color: #000;
+    display: flex;
+    align-items: stretch;
+    height: 5vh;
+
+    input[type=text] {
+        font-size: 2rem;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
