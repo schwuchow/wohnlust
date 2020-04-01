@@ -1,10 +1,14 @@
 import React from 'react';
-import CallToAction from '../../common/Button/CallToAction';
 import './SearchBar.scss';
+import Button from '../../common/button/Button';
 
 class SearchBar extends React.Component {
 
     cities = ['Hamburg', 'Köln', 'München', 'Mannheim'];
+
+    componentDidMount = () => {
+        this.fetchAppartments();
+    }
 
     searchValues = (event) => {
         this.filterSuggestions(event.target.value);
@@ -14,6 +18,14 @@ class SearchBar extends React.Component {
         const filteredCities = this.cities.filter(city => city.startsWith(searchValue.toUpperCase()));
 
 
+    };
+
+    fetchAppartments = () => {
+        const url = 'http://localhost:3001/appartments';
+
+        fetch(url)
+        .then(res => res.text())
+        .then(res => console.log(res));
     };
 
     renderSuggestions = [
@@ -31,7 +43,7 @@ class SearchBar extends React.Component {
                         onChange={this.searchValues}
                     ></input>
                     {this.renderSuggestions}
-                    <CallToAction action="Search" />
+                    <Button action="Search" />
                 </form>
             </div>
         );
