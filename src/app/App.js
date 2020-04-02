@@ -6,19 +6,33 @@ import Home from '../layouts/Home';
 import Story from '../layouts/Story';
 import Appartments from '../layouts/Appartments';
 import Concept from '../layouts/Concept';
+import { connect } from 'react-redux';
+import { fetchAppartments } from './actionApp';
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Navigation />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/concept" component={Concept} />
-        <Route exact path="/appartments" component={Appartments} />
-        <Route exact path="/story" component={Story} />
-      </Router>
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchAppartments();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Navigation />
+          <Route exact path="/" component={Home} />
+          <Route path="/concept" component={Concept} />
+          <Route path="/appartments" component={Appartments} />
+          <Route path="/story" component={Story} />
+        </Router>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return { appartments: state.appartments };
+};
+
+export default connect(mapStateToProps, { fetchAppartments })(App);

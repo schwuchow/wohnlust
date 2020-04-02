@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { searchAppartment } from './features/searchbar/reducerSearchbar';
+import { listAppartments } from './app/reducerApp';
 
 /*
     STATE
@@ -23,7 +24,8 @@ import { searchAppartment } from './features/searchbar/reducerSearchbar';
 
 const rootReducer = combineReducers({
     // reducers go here
-    searchAppartment
+    searchAppartment,
+    listAppartments
 });
 
 export default rootReducer;

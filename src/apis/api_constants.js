@@ -1,0 +1,1 @@
+export const appartmentsURL = 'http://localhost:3001/appartments';

@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
     cities = ['Hamburg', 'Köln', 'München', 'Mannheim'];
 
     componentDidMount = () => {
-        this.fetchAppartments();
+        //this.fetchAppartments();
     }
 
     searchValues = (event) => {
@@ -20,13 +20,13 @@ class SearchBar extends React.Component {
 
     };
 
-    fetchAppartments = () => {
-        const url = 'http://localhost:3001/appartments';
+    // fetchAppartments = () => {
+    //     const url = 'http://localhost:3001/appartments';
 
-        fetch(url)
-        .then(res => res.text())
-        .then(res => console.log(res));
-    };
+    //     fetch(url)
+    //     .then(res => res.text())
+    //     .then(res => console.log(res));
+    // };
 
     renderSuggestions = [
         <span>First City</span>,
