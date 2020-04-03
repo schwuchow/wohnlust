@@ -1,37 +1,28 @@
 import React from 'react';
 import './SearchBar.scss';
 import Button from '../../common/button/Button';
+import { setSearchField } from './actionSearchbar';
+import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
 
-    cities = ['Hamburg', 'Köln', 'München', 'Mannheim'];
-
-    componentDidMount = () => {
-        //this.fetchAppartments();
-    }
-
     searchValues = (event) => {
-        this.filterSuggestions(event.target.value);
+        this.props.setSearchField(event.target.value);
+        let {searchField, appartments} = this.props;
+        this.filterSuggestions(searchField, appartments);
     };
 
-    filterSuggestions = (searchValue) => {
-        const filteredCities = this.cities.filter(city => city.startsWith(searchValue.toUpperCase()));
-
-
+    filterSuggestions = (searchValue, appartments) => {
+        if (searchValue !== undefined) {
+            const filteredCities = appartments.filter(app => app.location.toLowerCase().includes(searchValue.toLowerCase()));
+            console.log(filteredCities);
+            this.renderSuggestions(filteredCities);
+        }
     };
 
-    // fetchAppartments = () => {
-    //     const url = 'http://localhost:3001/appartments';
+    renderSuggestions = () => {
 
-    //     fetch(url)
-    //     .then(res => res.text())
-    //     .then(res => console.log(res));
-    // };
-
-    renderSuggestions = [
-        <span>First City</span>,
-        <span>Second City</span>
-    ];
+    };
 
     render() {
         return (
@@ -42,7 +33,7 @@ class SearchBar extends React.Component {
                         placeholder="In"
                         onChange={this.searchValues}
                     ></input>
-                    {this.renderSuggestions}
+                    {this.renderSuggestions()}
                     <Button action="Search" />
                 </form>
             </div>
@@ -50,4 +41,12 @@ class SearchBar extends React.Component {
     }
 }
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+    // console.log(state);
+    return {
+        searchField: state.searchAppartment.searchField,
+        appartments: state.listAppartments.appartments
+    };
+}
+
+export default connect(mapStateToProps, { setSearchField })(SearchBar);

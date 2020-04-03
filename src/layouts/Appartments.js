@@ -1,9 +1,10 @@
 import React from 'react';
+import Appartment from '../features/appartment/Appartment';
 
 const Appartments = () => {
     return (
         <div>
-            See Appartments
+            <Appartment />
         </div>
     );
 };

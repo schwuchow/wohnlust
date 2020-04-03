@@ -31,8 +31,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
-  return { appartments: state.appartments };
+  // console.log(state);
+  return { appartments: state.listAppartments.appartments };
 };
 
 export default connect(mapStateToProps, { fetchAppartments })(App);

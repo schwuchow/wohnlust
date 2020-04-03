@@ -5,6 +5,7 @@ const Appartment = require('../models/Appartment');
 router.get('/', async(req, res) => {
     try {
         const appartments = await Appartment.find();
+        console.log(appartments);
         res.json(appartments);
     } catch(error) {
         res.json({ message: error });
@@ -12,15 +13,16 @@ router.get('/', async(req, res) => {
 });
 
 router.post('/', async(req, res) => {
-    const appartment = new Appartment({
-        location: req.body.location,
-        pricePerMonth: req.body.pricePerMonth,
-        qm: req.body.qm,
-        orientation: req.body.orientation,
-        details: {
-            facilities: req.body.details.facilities
-        }
-    });
+    // const appartment = new Appartment({
+    //     location: req.body.location,
+    //     pricePerMonth: req.body.pricePerMonth,
+    //     qm: req.body.qm,
+    //     orientation: req.body.orientation,
+    //     details: {
+    //         facilities: req.body.details.facilities
+    //     }
+    // });
+    const appartment = new Appartment(req.body);
 
     try {
         const savedAppartment = await appartment.save();

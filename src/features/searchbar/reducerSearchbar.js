@@ -1,13 +1,8 @@
 import { CHANGE_SEARCH_FIELD } from '../../actionConstants';
 
-// Shouldn't suggestions be in state, instead of searchField???
-const initialState = {
-    searchField: ''
-}
-
-export const searchAppartment = (state = initialState, action) => {
+export const searchAppartment = (state = '', action) => {
     switch(action.type) {
-        case CHANGE_SEARCH_FIELD: break;
+        case CHANGE_SEARCH_FIELD: return Object.assign({}, state, { searchField: action.payload });
         default: return state;
     }
 };
