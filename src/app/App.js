@@ -8,16 +8,18 @@ import Appartments from '../layouts/Appartments';
 import Concept from '../layouts/Concept';
 import { connect } from 'react-redux';
 import { fetchAppartments } from './actionApp';
+import Logo from '../img/logo.svg';
 
 class App extends React.Component {
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.fetchAppartments();
   }
 
   render() {
     return (
       <div className="App">
+        <object type="image/svg+xml" data={Logo} aria-label="Logo"></object>
         <Router>
           <Navigation />
           <Route exact path="/" component={Home} />

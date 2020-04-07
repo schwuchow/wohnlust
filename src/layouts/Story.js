@@ -3,7 +3,7 @@ import Button from '../common/button/Button';
 
 const Story = () => {
     return (
-        <div>
+        <div className="story">
             A long long time ago, there was an ordinary, likeable human, called xyz. <br/>
             XYZ was getting disillusioned from the housing market, dreaming of an affordable, decent space he/she can finally call "home". <br/>
             Neither did he/she feel comfortable in a tiny, single appartment with nobody around. <br/>

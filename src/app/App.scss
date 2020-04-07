@@ -5,4 +5,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  object {
+    width: 10rem;
+    height: 10rem;
+    float: left;
+  }
 }
