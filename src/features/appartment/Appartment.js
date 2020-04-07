@@ -1,5 +1,5 @@
 import React from 'react';
-import imgAppartment from '../../img/appartment.png';
+import imgAppartment from '../../img/appartment.svg';
 import './Appartment.scss';
 import { connect } from 'react-redux';
 

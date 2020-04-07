@@ -3,7 +3,7 @@ import Appartment from '../features/appartment/Appartment';
 
 const Appartments = () => {
     return (
-        <div>
+        <div className="layout">
             <Appartment />
         </div>
     );

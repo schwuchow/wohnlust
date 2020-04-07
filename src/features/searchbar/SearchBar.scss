@@ -1,15 +1,18 @@
-form {
-    
-    // background-color: #000;
+.searchbar {
     display: flex;
-    align-items: stretch;
-    height: 4rem;
+    justify-content: center;
 
-    input[type=text] {
-        font-size: 2rem;
+    form {
 
-        &:focus {
-            outline: none;
+        display: flex;
+        height: 4rem;
+
+        input[type=text] {
+            font-size: 2rem;
+
+            &:focus {
+                outline: none;
+            }
         }
     }
 }
