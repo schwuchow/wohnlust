@@ -1,0 +1,16 @@
+.card {
+    height: 30rem;
+    width: 30rem;
+    background: linear-gradient(150deg,   #faf2e3,  #d6cfc2);
+    float: left;
+    margin: 0 5rem;
+    padding: 3rem;
+    border-radius: 10%;
+    box-shadow: 10px 10px 10px rgba(0,0,0, .3), 
+            -10px -10px 20px rgba(255,255,255, 1);
+    margin-top: 10rem;
+    color: #2c3634;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

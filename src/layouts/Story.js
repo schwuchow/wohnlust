@@ -12,8 +12,8 @@ const Story = () => {
             <p>He/she finds this website and wants to seek help. She starts her email like this:</p>
             <p>Hello Mr. Realtor, I'm a looking for a great place to live. Could you get in touch with me?</p>
             <Button action="Send this letter" />
-            <p>Tear it up and write it again.</p>
-            He/she clicks send and exhales deeply. He/she is excited how it will go.
+            <Button action="Burn it and write again" />
+            <p>He/she clicks send and exhales deeply. He/she is excited how it will go.</p>
         </div>
     );
 };
