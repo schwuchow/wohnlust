@@ -3,13 +3,15 @@
   color: #282c34;
   font-size: 2rem;
   display: grid;
-  grid-template-rows: 10% 20% 50% 1fr;
+  grid-template-rows: 15vh 80% 1fr;
   grid-template-columns: 1fr 70% 1fr;
-  grid-gap: 1rem;
+  align-items: center;
 
   object {
     width: 10rem;
     height: 10rem;
-    margin-left: 2rem;
+    margin-left: 3rem;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
   }
 }

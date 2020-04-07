@@ -17,8 +17,6 @@ class Navigation extends React.Component {
     }
 
     addHighlightAnim = (e) => {
-        // CONTINUE
-        // console.log(e);
 
         const highlightStyles = {
             width: `${e.currentTarget.offsetWidth}px`,

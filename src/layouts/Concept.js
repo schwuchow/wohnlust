@@ -43,7 +43,7 @@ const Concept = () => {
     }
 
     return (
-        <div className="layout concept">
+        <div className="layout layout__concept">
             {renderCards()}
         </div>
     );

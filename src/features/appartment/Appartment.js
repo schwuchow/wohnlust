@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 
 class Appartment extends React.Component {
 
-    showProps() {
-        if (this.props.appartments) {
-            let { location, pricePerMonth, qm, orientation} = this.props.appartments[0];
+    showProps = appartments => {
+        if (appartments) {
+            let { location, pricePerMonth, qm, orientation} = appartments[0];
             console.log(location, pricePerMonth, qm, orientation);
 
             return (
@@ -23,9 +23,9 @@ class Appartment extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="appartment">
                 <img src={imgAppartment} alt="Appartment" />
-                {this.showProps()}
+                {this.showProps(this.props.appartments)}
             </div>
         )
     }

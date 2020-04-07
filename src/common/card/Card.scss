@@ -1,7 +1,8 @@
 .card {
     height: 30rem;
     width: 30rem;
-    background: linear-gradient(150deg,   rgba(250, 242, 227, .5),  rgba(214, 207, 194, .5));
+    // background: linear-gradient(150deg,   rgba(250, 242, 227, .5),  rgba(214, 207, 194, .5));
+    background: rgba(255,255,255,.2);
     float: left;
     margin: 0 5rem;
     padding: 3rem;
@@ -13,4 +14,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    &:hover {
+        animation: card .5s;
+    }
+
+    @keyframes card {
+        0% {
+            transform: translateY(0);
+        }
+
+        70% {
+            transform: translateY(10px);
+        }
+
+        90% {
+            transform: translateY(-5px);
+        }
+    }
 }

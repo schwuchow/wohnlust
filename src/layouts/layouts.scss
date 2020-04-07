@@ -1,24 +1,37 @@
 .layout {
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
-}
 
-.home {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+    &__home {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
 
-    div {
-        margin-top: 10%;
-        font-size: 5rem;
+        div {
+            margin-top: 10%;
+            font-size: 5rem;
+
+            span {
+                font-weight: 600;
+                box-shadow: 5px 5px 5px rgba(0,0,0, .5),
+                -5px -5px 10px rgba(255, 255, 255, .7);
+                transition: .2s;
+                display: inline-block;
+
+                &:hover {
+                    transform: translateY(5px);
+                }
+            }
+        }
     }
-}
 
-.concept {
-    display: flex;
-    justify-content: space-between;
-}
+    &__concept {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.story {
-    width: 70vw;
+    &__story {
+        margin-top: 5rem;
+        width: 70vw;
+    }
 }

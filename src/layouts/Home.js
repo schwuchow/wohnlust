@@ -3,8 +3,8 @@ import SearchBar from '../features/searchbar/SearchBar';
 
 const Home = () => {
     return (
-        <div className="layout home">
-            <div>Be part of a good <br/>way of living</div>
+        <div className="layout layout__home">
+            <div>Be part of a <span>good</span><br/>way of living</div>
             <SearchBar/>
         </div>
     );

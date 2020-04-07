@@ -1,4 +1,22 @@
-img {
-    width: 100%;
-    height: 100%;
+.appartment {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 50%;
+        height: 50%;
+
+        & + div {
+            opacity: 0;
+            transition: .2s;
+            display: inline-block;
+        }
+
+        &:hover + div {
+            opacity: 1;
+            transform: translateX(10%);
+        }
+    }
 }
