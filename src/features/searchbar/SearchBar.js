@@ -42,7 +42,6 @@ class SearchBar extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state);
     return {
         searchField: state.searchAppartment.searchField,
         appartments: state.listAppartments.appartments

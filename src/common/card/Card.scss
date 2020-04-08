@@ -16,7 +16,7 @@
     justify-content: space-around;
 
     &:hover {
-        animation: card .5s;
+        animation: card 1s;
     }
 
     @keyframes card {
@@ -24,12 +24,12 @@
             transform: translateY(0);
         }
 
-        70% {
+        50% {
             transform: translateY(10px);
         }
 
         90% {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
     }
 }

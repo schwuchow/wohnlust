@@ -9,10 +9,39 @@
         position: relative;
 
         input[type=text] {
+            width: 250px;
             font-size: 2rem;
+            background-color: rgba(255, 255, 255, .9);
 
             &:focus {
                 outline: none;
+            }
+        }
+
+        .auto-suggest {
+            width: 254px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            position: absolute;
+            top: 40px;
+            background-color: rgba(255, 255, 255, .8);
+            border: .5px solid rgb(133, 133, 133);
+            transition: .2s;
+
+            &:before {
+                content: '';
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                margin-right: 1rem;
+                background: url('../../img/background_green.svg') no-repeat;
+            }
+
+            &:hover {
+                background-color: rgba(0,0,0, .3);
+                cursor: pointer;
             }
         }
     }
