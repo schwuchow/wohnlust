@@ -1,29 +1,15 @@
-/*
-    STATE
-    state = [
-        appartments: {
-            id: 1,
-            location: Köln,
-            price: 34€,
-            qm: 50,
-            orientation: south,
-            details: {
-                description: Something,
-                balcony: yes
-            }
-        },
-    ]
-
-*/
-
 const mongoose = require('mongoose');
 
 const AppartmentSchema = mongoose.Schema({
-    location: {
+    orientation: {
         type: String,
+        required: true,
+    },
+    baseRent: {
+        type: Number,
         required: true
     },
-    pricePerMonth: {
+    deposit: {
         type: Number,
         required: true
     },
@@ -31,15 +17,13 @@ const AppartmentSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    orientation: {
-        type: String,
+    availableFrom: {
+        type: Date,
         required: true
     },
-    details: {
-        facilities: {
-            type: String
-        }
-    }
+    details: [{
+        type: String
+    }]
 });
 
 module.exports = mongoose.model('Appartment', AppartmentSchema);

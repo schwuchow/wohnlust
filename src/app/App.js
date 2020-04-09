@@ -6,14 +6,14 @@ import Home from '../layouts/Home';
 import Story from '../layouts/Story';
 import Appartments from '../layouts/Appartments';
 import Concept from '../layouts/Concept';
-import { connect } from 'react-redux';
-import { fetchAppartments } from './actionApp';
 import Logo from '../img/logo.svg';
+import { connect } from 'react-redux';
+import { fetchAppartmentUnits } from './actionApp';
 
 class App extends React.Component {
 
   componentDidMount = () => {
-    this.props.fetchAppartments();
+    this.props.fetchAppartmentUnits();
   }
 
   render() {
@@ -32,9 +32,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  // console.log(state);
-  return { appartments: state.listAppartments.appartments };
-};
-
-export default connect(mapStateToProps, { fetchAppartments })(App);
+export default connect(null, {fetchAppartmentUnits})(App);

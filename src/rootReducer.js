@@ -1,31 +1,10 @@
 import { combineReducers } from "redux";
-import { searchAppartment } from './features/searchbar/reducerSearchbar';
-import { listAppartments } from './app/reducerApp';
-
-/*
-    STATE
-    state = [
-        appartments: {
-            id: 1,
-            location: Köln,
-            name: Appartment,
-            price: 34€,
-            qm: 50,
-            details: {
-                description: Something,
-                location: south,
-                balcony: yes
-            }
-        },
-        searchField: 'Köln
-    ]
-
-*/
+import { searchbarReducer } from './features/searchbar/reducerSearchbar';
+import { appReducer } from './app/reducerApp';
 
 const rootReducer = combineReducers({
-    // reducers go here
-    searchAppartment,
-    listAppartments
+    searchbarReducer,
+    appReducer
 });
 
 export default rootReducer;

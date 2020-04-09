@@ -1,32 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const Appartment = require('../models/Appartment');
+const AppartmentUnit = require('../models/AppartmentUnit');
 
 router.get('/', async(req, res) => {
     try {
-        const appartments = await Appartment.find();
-        console.log(appartments);
-        res.json(appartments);
+        const appartmentUnit = await AppartmentUnit.find();
+        console.log(appartmentUnit);
+        res.json(appartmentUnit);
     } catch(error) {
         res.json({ message: error });
     }
 });
 
 router.post('/', async(req, res) => {
-    // const appartment = new Appartment({
-    //     location: req.body.location,
-    //     pricePerMonth: req.body.pricePerMonth,
-    //     qm: req.body.qm,
-    //     orientation: req.body.orientation,
-    //     details: {
-    //         facilities: req.body.details.facilities
-    //     }
-    // });
-    const appartment = new Appartment(req.body);
+    const appartmentUnit = new AppartmentUnit(req.body);
 
     try {
-        const savedAppartment = await appartment.save();
-        res.json(savedAppartment);
+        const savedAppartmentUnit = await appartmentUnit.save();
+        res.json(savedAppartmentUnit);
     } catch(error) {
         res.json({ message: error });
     }

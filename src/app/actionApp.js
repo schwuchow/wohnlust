@@ -1,12 +1,12 @@
-import { appartmentsURL } from '../apis/api_constants';
-import { FETCH_APPARTMENTS } from '../actionConstants';
+import { appartmentUnitsURL } from '../apis/api_constants';
+import { FETCH_APPARTMENTUNITS } from '../actionConstants';
 
-export const fetchAppartments = () => async dispatch => {
+export const fetchAppartmentUnits = () => async dispatch => {
 
     try {
-        const response = await fetch(appartmentsURL);
+        const response = await fetch(appartmentUnitsURL);
         const data = await response.json();
-        dispatch({ type: FETCH_APPARTMENTS, payload: data });
+        dispatch({ type: FETCH_APPARTMENTUNITS, payload: data });
     } catch(error) {
         console.log(error);
     }
