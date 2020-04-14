@@ -40,15 +40,11 @@ class SearchBar extends React.Component {
 
     handleClickedCity = (city) => {
         this.saveClickedCity(city);
-        this.redirectToAppartments();
+        this.props.setSearchField(city.location[0].city);
     }
 
     saveClickedCity = (city) => {
         this.props.setCityOnDisplay(city);
-    }
-
-    redirectToAppartments = () => {
-        this.props.history.push(this.state.path)
     }
 
     renderSuggestions = (cities) => {
@@ -80,6 +76,7 @@ class SearchBar extends React.Component {
                         type="text" 
                         placeholder="In"
                         onChange={this.searchValues}
+                        value={this.props.searchField}
                     ></input>
                     {this.renderSuggestions(this.state.filteredCities)}
                     <Button action="Search" path={this.state.path} />
