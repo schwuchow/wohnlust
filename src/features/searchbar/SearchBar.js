@@ -11,14 +11,10 @@ class SearchBar extends React.Component {
         super(props);
 
         this.state = {
-            filteredCities: [],
+            filteredUniqueCities: [],
             path: '/appartments'
          };
     }
-
-    searchValues = (event) => {
-        this.props.setSearchField(event.target.value);
-    };
 
     componentDidUpdate = (prevProps) => {
         if ((prevProps.searchField !== this.props.searchField)
@@ -28,15 +24,42 @@ class SearchBar extends React.Component {
         }
     }
 
+    searchValues = (event) => {
+        this.props.setSearchField(event.target.value);
+    };
+
     filterSuggestions = (searchValue, appartmentUnits) => {
         if (searchValue !== undefined && appartmentUnits !== undefined) {
-            const filteredCities = appartmentUnits.filter(app => {
-                return app.location[0].city.toLowerCase().includes(searchValue.toLowerCase())});
-            this.setState({ filteredCities });
+
+            const filteredCities = this.getInputMatchesCities(searchValue, appartmentUnits);
+            const uniqueCities = this.getUniqueFilteredCities(filteredCities);
+
+            const inputIsSuggestion = this.checkInputIsSuggestion(searchValue, uniqueCities);
+
+            let citiesToSave = uniqueCities;
+            if (inputIsSuggestion) citiesToSave = [];
+
+            this.setState({ filteredUniqueCities: citiesToSave });
         } else {
             return [];
         }
     };
+
+    getInputMatchesCities = (searchValue, appartmentUnits) => {
+        return appartmentUnits.filter(app => {
+            return app.location[0].city.toLowerCase().includes(searchValue.toLowerCase())});
+    }
+
+    getUniqueFilteredCities = (filteredCities) => {
+        return filteredCities.filter((city, i, cityArr) => {
+            if (i >= 5) return true;
+            return cityArr.map(c => c.location[0].city).indexOf(city.location[0].city) === i;
+        });
+    }
+
+    checkInputIsSuggestion = (searchValue, uniqueCities) => {
+        return (uniqueCities.length === 1 && searchValue.toLowerCase() === uniqueCities[0].location[0].city.toLowerCase())
+    }
 
     handleClickedCity = (city) => {
         this.saveClickedCity(city);
@@ -48,24 +71,17 @@ class SearchBar extends React.Component {
     }
 
     renderSuggestions = (cities) => {
-        if (cities !== undefined) {
-            const uniqueCities = cities.filter((city, i, cityArr) => {
-                if (i >= 5) return true;
-                return cityArr.map(c => c.location[0].city).indexOf(city.location[0].city) === i;
-            });
-
-            return (
-                uniqueCities.map((city, i) =>
-                    <span
-                        style={{top: `${40*(i+1)}px`}}
-                        key={city._id}
-                        className="auto-suggest"
-                        onClick={() => this.handleClickedCity(city)}>
-                            {city.location[0].city}
-                    </span>
-                )
-            );
-        }
+        return (
+            cities.map((city, i) =>
+                <span
+                    style={{top: `${40*(i+1)}px`}}
+                    key={city._id}
+                    className="auto-suggest"
+                    onClick={() => this.handleClickedCity(city)}>
+                        {city.location[0].city}
+                </span>
+            )
+        );
     };
 
     render() {
@@ -78,7 +94,7 @@ class SearchBar extends React.Component {
                         onChange={this.searchValues}
                         value={this.props.searchField}
                     ></input>
-                    {this.renderSuggestions(this.state.filteredCities)}
+                    {this.renderSuggestions(this.state.filteredUniqueCities)}
                     <Button action="Search" path={this.state.path} />
                 </form>
             </div>

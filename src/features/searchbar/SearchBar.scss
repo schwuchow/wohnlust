@@ -12,14 +12,16 @@
             width: 250px;
             font-size: 2rem;
             background-color: rgba(255, 255, 255, .9);
+            margin-right: 1rem;
+            padding-left: 1rem;
 
             &:focus {
-                outline: none;
+                outline: 3px solid rgba(68,156,111, .5);
             }
         }
 
         .auto-suggest {
-            width: 254px;
+            width: 250px;
             font-size: 1.5rem;
             font-weight: bold;
             padding-top: 1rem;
