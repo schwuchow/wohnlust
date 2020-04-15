@@ -1,8 +1,7 @@
 nav {
 
     grid-row: 1 / span 1;
-    grid-column: 2 / span 1;
-
+    grid-column: 2 / span 2;
 
     ul {
         list-style: none;
@@ -23,6 +22,50 @@ nav {
                     transform: translateX(5px);
                 }
             }
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+
+        grid-column: 2 / span 2;
+        position: relative;
+        right: -2rem;
+        width: 90px;
+        height: 60px;
+        background: var(--color-cta);
+        border-radius: 10%;
+        justify-self: end;
+        cursor: pointer;
+        transition: .2s;
+        border: 1rem solid rgba(126, 70, 70, 1);
+        box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+
+        &::before {
+            content: '---';
+            position: absolute;
+            bottom: .5rem;
+            left: 1.5rem;
+            // width: 1rem;
+            // height: 10px;
+            color: white;
+        }
+
+        &::after {
+            content: '---';
+            position: absolute;
+            top: .5rem;
+            right: 1.5rem;
+            // width: 1rem;
+            // height: 10px;
+            color: white;
+        }
+
+        &:hover {
+            transform: scaleX(1.2);
+        }
+
+        ul {
+            display: none;
         }
     }
 }

@@ -1,12 +1,9 @@
 .appartment {
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
 
     label {
-        position: absolute;
-        top: 50rem;
+        // display: none;
         z-index: 2;
         opacity: 1;
 
@@ -16,26 +13,28 @@
     }
 
     img {
-        position: absolute;
-        top: 30rem;
+        grid-row: 1;
+        grid-column: 1;
 
-        & + div {
-            opacity: 0;
-            transition: .2s;
-            display: inline-block;
-        }
+        // & + div {
+        //     opacity: 1;
+        //     transition: .2s;
+        // }
 
-        &:hover + div {
-            opacity: 1;
-            transform: translateX(10%);
-        }
+        // &:hover + div {
+        //     opacity: 1;
+        //     transform: translateX(10%);
+        // }
+    }
+
+    &__details {
+        display: none;
     }
 
     &__roof {
-        width: 18%;
-        height: 18%;
         opacity: 1;
         transition: .5s;
+        cursor: pointer;
 
         &:hover {
             opacity: 0;
@@ -43,13 +42,33 @@
     }
 
     &__room {
-        width: 20%;
-        height: 20%;
-        display: block;
-        transition: .5s;
+        // transition: .5s;
 
-        &:hover {
-            transform: scale(2);
-        }
+        // &:hover {
+        //     transform: scale(2);
+        // }
+    }
+
+    &__north {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+    }
+
+    &__east {
+        grid-row: 3 / 4;
+        grid-column: 3 / 4;
+        transform: rotate(90deg);
+    }
+
+    &__west {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+        transform: rotate(-90deg);
+    }
+
+    &__south {
+        grid-row: 4 / 5;
+        grid-column: 2 / 3;
+        transform: rotate(180deg);
     }
 }

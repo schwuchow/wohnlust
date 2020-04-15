@@ -4,7 +4,7 @@ import Navigation from '../features/navigation/Navigation';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../layouts/Home';
 import Story from '../layouts/Story';
-import Appartments from '../layouts/Appartments';
+import Appartments from '../layouts/appartments/Appartments';
 import Concept from '../layouts/Concept';
 import Logo from '../img/logo.svg';
 import { connect } from 'react-redux';

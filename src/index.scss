@@ -42,6 +42,11 @@ body {
   background-repeat: no-repeat;
   background-position: top -40vh left 10vw, top 60vh right -20vw;
   background-size: 60%;
+
+  @media screen and (max-width: 767px) {
+    background-position: top -40vh left 10vw, top 60vh right -20vw;
+    background-size: 80%;
+  }
 }
 
 code {
