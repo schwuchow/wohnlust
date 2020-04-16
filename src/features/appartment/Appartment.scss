@@ -3,7 +3,6 @@
     display: grid;
 
     label {
-        // display: none;
         z-index: 2;
         opacity: 1;
 
@@ -15,16 +14,6 @@
     img {
         grid-row: 1;
         grid-column: 1;
-
-        // & + div {
-        //     opacity: 1;
-        //     transition: .2s;
-        // }
-
-        // &:hover + div {
-        //     opacity: 1;
-        //     transform: translateX(10%);
-        // }
     }
 
     &__details {
@@ -39,14 +28,6 @@
         &:hover {
             opacity: 0;
         }
-    }
-
-    &__room {
-        // transition: .5s;
-
-        // &:hover {
-        //     transform: scale(2);
-        // }
     }
 
     &__north {

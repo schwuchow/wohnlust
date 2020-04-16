@@ -36,16 +36,16 @@ class Dropdown extends React.Component {
             const sameCityList = this.props.unitList.filter(unit => 
                 unit.location[0].city === this.props.currentDisplay.location[0].city)
   
-            sameCityList.map((unit, i) => {
+            return sameCityList.map((unit, i) => {
 
                 const {street, postalCode} = unit.location[0];
 
                 return (
-                    <div>{street}<span>{postalCode}</span></div>
+                    <li>{street}<span>{postalCode}</span></li>
                 );
             })
         } else {
-            return <div>Hii</div>;
+            return;
         }
     }
 

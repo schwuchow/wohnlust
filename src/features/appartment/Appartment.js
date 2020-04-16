@@ -26,7 +26,11 @@ console.log(this.props);
                 <div>Available from: {availableFrom}</div>
                 <div>Deposit: {deposit}</div>
                 <div>Orientation: {orientation}</div>
-                <div>Details: {details}</div>
+                <ul>Details:
+                    {details.map(detail => {
+                        return <li>{detail}</li>
+                    })}
+                </ul>
             </div>
         )
     }
@@ -37,7 +41,7 @@ console.log(this.props);
 
     render() {
         return (
-            <div className={this.props.styling}>
+            <div className={`appartment ${'appartment__' + this.props.orientation}`}>
                 <label>Room</label>
                 <img src={imgAppartment} className="appartment__room" alt="Appartment" />
                 <img src={imgRoofAppartment} className="appartment__roof" alt="Appartment" onClick={this.handleClick}/>

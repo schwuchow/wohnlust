@@ -7,38 +7,41 @@ import { setCityOnDisplay } from './actionAppartments';
 
 class Appartments extends React.Component {
 
-    // TO FIX
-    componentDidUpdate = () => {
+    renderAppartments = (displayedCity) => {
+        const appartments = displayedCity.appartments;
 
-        if (this.props.appartmentUnits) {
-            this.props.setCityOnDisplay(this.props.appartmentUnits[0]);
-        }
+        return (
+            <div className="layout layout__appartments">
+                <DropdownMenu currentDisplay={displayedCity} unitList={this.props.appartmentUnits}/>
+                {
+                    appartments.map(room => {
+                        return <Appartment appartment={room} orientation={room.orientation} />
+                    })
+                }
+            </div>
+        );
     }
 
     render() {
 
         if (this.props.cityOnDisplay) {
-            const appartments= this.props.cityOnDisplay.appartments;
+            const displayedCity= this.props.cityOnDisplay;
+            return this.renderAppartments(displayedCity);
 
-            return (
-                <div className="layout layout__appartments">
-                    <DropdownMenu currentDisplay={this.props.cityOnDisplay} unitList={this.props.appartmentUnits}/>
-                    <Appartment appartment={appartments[0]} styling="appartment appartment__west" />
-                    <Appartment appartment={appartments[1]} styling="appartment appartment__north"/>
-                    <Appartment appartment={appartments[2]} styling="appartment appartment__south"/>
-                    <Appartment appartment={appartments[3]} styling="appartment appartment__east"/>
-                </div>
-            );
+        } else if (this.props.appartmentUnits) {
+            const defaultDisplayedCity = this.props.appartmentUnits[0];
+            this.props.setCityOnDisplay(defaultDisplayedCity);
+            return this.renderAppartments(defaultDisplayedCity);
+
         } else {
             return (
                 <div></div>
-            )
+            );
         }
     }
 };
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         appartmentUnits: state.appReducer.appartmentUnits,
         cityOnDisplay: state.appartmentsReducer.cityOnDisplay
