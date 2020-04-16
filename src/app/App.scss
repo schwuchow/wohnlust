@@ -13,5 +13,11 @@
     margin-left: 3rem;
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
+    pointer-events: none;
+    transition: .2s;
+
+    &:hover {
+      // border: 1px solid var(--color-cta);
+    }
   }
 }

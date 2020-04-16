@@ -7,6 +7,14 @@
     color: #fff;
     cursor: pointer;
 
+    &:hover {
+        background-color: rgb(139, 77, 77);
+    }
+
+    i {
+        line-height: 1.5;
+    }
+
     @media screen and (max-width: 767px) {
         font-size: 2rem;
     }

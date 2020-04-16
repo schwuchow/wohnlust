@@ -3,7 +3,6 @@ import './SearchBar.scss';
 import Button from '../../common/button/Button';
 import { setSearchField, setCityOnDisplay } from './actionSearchbar';
 import { connect } from 'react-redux';
-import { withRouter } from "react-router-dom";
 
 class SearchBar extends React.Component {
 
@@ -109,4 +108,4 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default withRouter(connect(mapStateToProps, { setSearchField, setCityOnDisplay })(SearchBar));
+export default connect(mapStateToProps, { setSearchField, setCityOnDisplay })(SearchBar);

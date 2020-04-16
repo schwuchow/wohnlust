@@ -9,6 +9,7 @@ import Concept from '../layouts/Concept';
 import Logo from '../img/logo.svg';
 import { connect } from 'react-redux';
 import { fetchAppartmentUnits } from './actionApp';
+import { Link } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -19,8 +20,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <object type="image/svg+xml" data={Logo} aria-label="Logo"></object>
         <Router>
+          <Link to="/"><object type="image/svg+xml" data={Logo} aria-label="Logo"></object></Link>
           <Navigation />
           <Route exact path="/" component={Home} />
           <Route path="/concept" component={Concept} />
