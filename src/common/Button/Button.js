@@ -12,7 +12,7 @@ const Button = props => {
 
     return (
         <button type="submit" className="btn btn__cta-btn" onClick={handleBtnClick}>
-            {(props.action==='Search') ? <i class="material-icons">search</i>:props.action}
+            {(props.action==='Search') ? <i className="material-icons">search</i>:props.action}
         </button>
     );
 };

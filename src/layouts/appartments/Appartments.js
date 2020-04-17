@@ -12,6 +12,7 @@ class Appartments extends React.Component {
 
         return (
             <div className="layout layout__appartments">
+                <label className="layout__appartments__city">{displayedCity.location[0].city}</label>
                 <DropdownMenu currentDisplay={displayedCity} unitList={this.props.appartmentUnits}/>
                 {
                     appartments.map(room => {

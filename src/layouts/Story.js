@@ -10,12 +10,14 @@ const Story = () => {
             <p>Nor in a bigger, shared one, where different living standards kept clashing.</p>
             <p>So he/she decided to find a solution which might mix the best of both worlds. </p>
             <p>He/she finds this website and wants to seek help. She starts her email like this:</p>
-            <textarea rows="4" cols="100" defaultValue="Hello Mr. Realtor,
-                I'm a looking for a great place to live.
-                Could you get in touch with me?" />
             <div>
-                <Button action="Send this letter" />
-                <Button action="Burn it and write again" />
+                <textarea rows="4" cols="100" defaultValue="Hello Mr. Realtor,
+                    I'm a looking for a great place to live.
+                    Could you get in touch with me?" />
+                {/* <div> */}
+                    <Button action="Send this letter" />
+                    <Button action="Burn it and write again" />
+                {/* </div> */}
             </div>
             <p>He/she clicks send and exhales deeply. He/she is excited how it will go.</p>
         </div>
