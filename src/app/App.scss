@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  color: #282c34;
+  color: var(--c-dark-grey);
   font-size: 2rem;
   display: grid;
   grid-template-rows: 15vh 1fr;

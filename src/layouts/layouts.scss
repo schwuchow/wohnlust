@@ -51,7 +51,7 @@
             line-height: 2.5;
             justify-self: end;
             padding: 0 2rem;
-            background-color: rgb(255, 217, 0);
+            background-color: var(--c-yellow);
             // box-shadow:  10px 10px 10px rgba(0,0,0, .3),
             //  -10px -10px 20px rgba(255,255,255, 1);
             box-shadow:  inset 10px 10px 10px rgba(0,0,0, .3),
@@ -91,7 +91,7 @@
         }
 
         div textarea {
-            background-color: var(--color-primary);
+            background-color: var(-c-sand);
         }
     }
 

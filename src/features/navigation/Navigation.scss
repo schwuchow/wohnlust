@@ -32,7 +32,7 @@ nav {
         right: -2rem;
         width: 90px;
         height: 60px;
-        background: var(--color-cta);
+        background: var(--c-copper);
         border-radius: 10%;
         justify-self: end;
         cursor: pointer;
@@ -46,7 +46,7 @@ nav {
             position: absolute;
             bottom: .5rem;
             left: 1.5rem;
-            color: white;
+            color: var(--c-white);
         }
 
         &::after {
@@ -54,7 +54,7 @@ nav {
             position: absolute;
             top: .5rem;
             right: 1.5rem;
-            color: white;
+            color: var(--c-white);
         }
 
         &:hover {
@@ -78,7 +78,7 @@ nav {
                 height: 65rem;
                 right: 0rem;
                 border-radius: 50%;
-                background: var(--color-cta);
+                background: var(--c-copper);
                 border-radius: inherit;
             }
 
@@ -93,7 +93,7 @@ nav {
             right: 10rem;
             display: none;
             top: 50%;
-            color: white;
+            color: var(--c-white);;
         }
     }
 }

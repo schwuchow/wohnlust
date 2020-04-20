@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Button from '../common/button/Button';
 
 const Story = () => {
+    const ref = useRef();
+
+    useEffect(() => {
+
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(handleObserve, options);
+
+        function handleObserve(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(entry, 'yea');
+                }
+            });
+        }
+
+        if (ref.current) {
+            const childrenNodes = ref.current.childNodes;
+
+            childrenNodes.forEach(nodeToObserve => {
+                observer.observe(nodeToObserve);
+            })
+        }
+
+
+    }, [ref]);
+
     return (
-        <div className="layout layout__story">
+        <div className="layout layout__story" ref={ref}>
             <p>A long long time ago, there was an ordinary, likeable human, called xyz.</p>
             <p>XYZ was getting disillusioned from the housing market, dreaming of an affordable, decent space he/she can finally call "home".</p>
             <p>Neither did he/she feel comfortable in a tiny, single appartment with nobody around.</p>
