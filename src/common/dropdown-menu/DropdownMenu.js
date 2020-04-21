@@ -1,7 +1,9 @@
 import React from 'react';
 import './DropdownMenu.scss';
+import { connect } from 'react-redux';
+import { setCityOnDisplay } from './actionDropdownMenu';
 
-class Dropdown extends React.Component {
+class DropdownMenu extends React.Component {
 
     constructor(props) {
         super(props);
@@ -41,7 +43,7 @@ class Dropdown extends React.Component {
                 const {street, postalCode} = unit.location[0];
 
                 return (
-                    <li>{street}<span>{postalCode}</span></li>
+                    <li key={i} onClick={this.selectThisAddress}>{street}<span>{postalCode}</span></li>
                 );
             })
         } else {
@@ -64,4 +66,4 @@ class Dropdown extends React.Component {
     }
 }
 
-export default Dropdown;
+export default connect(null, { setCityOnDisplay })(DropdownMenu);

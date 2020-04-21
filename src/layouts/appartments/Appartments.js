@@ -4,6 +4,7 @@ import DropdownMenu from '../../common/dropdown-menu/DropdownMenu';
 import { connect } from 'react-redux';
 import '../layouts.scss';
 import { setCityOnDisplay } from './actionAppartments';
+import sharedLivingSpace from '../../img/shared_living_space.svg';
 
 class Appartments extends React.Component {
 
@@ -14,11 +15,16 @@ class Appartments extends React.Component {
             <div className="layout layout__appartments">
                 <label className="layout__appartments__city">{displayedCity.location[0].city}</label>
                 <DropdownMenu currentDisplay={displayedCity} unitList={this.props.appartmentUnits}/>
-                {
-                    appartments.map(room => {
-                        return <Appartment appartment={room} orientation={room.orientation} />
-                    })
-                }
+                <div className="appartment-container">
+                    {
+                        appartments.map((room, i) => {
+                            return <Appartment key={i} appartment={room} orientation={room.orientation} />
+                        })
+                    }
+                    <div className="shared-living-room">
+                        <img src={sharedLivingSpace} alt="Shared living room"></img>
+                    </div>
+                </div>
             </div>
         );
     }

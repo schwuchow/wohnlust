@@ -94,7 +94,7 @@ class SearchBar extends React.Component {
                         value={this.props.searchField}
                     ></input>
                     {this.renderSuggestions(this.state.filteredUniqueCities)}
-                    <Button action="Search" path={this.state.path} />
+                    <Button text="Search" action="route" path={this.state.path} color="copper" />
                 </form>
             </div>
         );

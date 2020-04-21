@@ -24,8 +24,8 @@ class Appartment extends React.Component {
                 <div>Deposit: {deposit} €</div>
                 <div>Orientation: {orientation}</div>
                 <ul>Details:
-                    {details.map(detail => {
-                        return <li>- {detail}</li>
+                    {details.map((detail, i) => {
+                        return <li key={i}>- {detail}</li>
                     })}
                 </ul>
             </div>

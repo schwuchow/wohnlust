@@ -1,21 +1,33 @@
 .btn {
-    font-size: 2.5rem;
-    background-color: var(--c-copper);
+    font-size: inherit;
+    line-height: 2.5rem;
     padding: 0 2rem;
     border: none;
     border-radius: 3px 3px;
     color: var(--c-white);
     cursor: pointer;
 
-    &:hover {
-        background-color: rgb(139, 77, 77);
+    &:focus {
+        outline: none;
     }
 
     i {
         line-height: 1.5;
     }
 
-    @media screen and (max-width: 767px) {
-        font-size: 2rem;
+    &__copper {
+        background-color: var(--c-copper);
+
+        &:hover {
+            background-color: rgb(139, 77, 77);
+        }
+    }
+
+    &__grey {
+        background-color: var(--c-dark-grey);
+
+        &:hover {
+            background-color: rgb(139, 77, 77);
+        }
     }
 }
