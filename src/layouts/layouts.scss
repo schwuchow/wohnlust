@@ -122,7 +122,6 @@
                 height: 20rem;
                 font-size: inherit;
                 background-color: var(--c-sand);
-                // border: 1px solid red;
                 padding: 2rem;
                 border: none;
                 margin-bottom: 1rem;
@@ -134,7 +133,7 @@
                 //  -10px -10px 20px rgba(255,255,255, 1);
 
                 &:focus {
-                    outline: 3px solid rgba(68,156,111, .5);
+                    outline: 2px solid rgba(0,0,0, .5);
                 }
             }
 

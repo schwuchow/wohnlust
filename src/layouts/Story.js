@@ -5,14 +5,13 @@ const Story = () => {
     const [showEl, setShowEl] = useState('');
 
     const ref = useRef();
-    const textAreaValue = `Hello Mr. Realtor, I'm a looking for a great place to live. Could you get in touch with me?`;
 
     useEffect(() => {
 
         const options = {
             root: null,
             rootMargin: '0px',
-            threshold: .5
+            threshold: 1
         };
 
         const observer = new IntersectionObserver(handleObserve, options);
@@ -32,26 +31,47 @@ const Story = () => {
                 observer.observe(nodeToObserve);
             })
         }
-
-
     }, [ref]);
+
+    const renderStoryItems = () => {
+        const storyItems = [
+            {text: 'A long long time ago, there was an ordinary, likeable human, called XYZ.'},
+            {text: 'XYZ was getting disillusioned from the housing market, dreaming of an affordable, decent space XYZ can finally call "home".'},
+            {text: 'Neither did XYZ feel comfortable in a tiny, single appartment with nobody around.'},
+            {text: 'Nor in a bigger, shared one, where different living standards kept clashing.'},
+            {text: 'So XYZ decided to find a solution which might mix the best of both worlds.'},
+            {text: 'XYZ finds this website where XYZ wants to seek help. XYZ starts the email like this:'},
+            {textArea: `Hello Mr. Realtor, I'm a looking for a great place to live. Could you get in touch with me?`},
+            {text: 'XYZ clicks send and looks pleased. How will the story continue?'}
+        ];
+
+        return storyItems.map((item, i) => {
+            if (item.textArea) return renderForm(item.textArea, i);
+            else {
+                return (
+                    <p key={i}
+                        data-id={i}
+                        style={showEl === `${i}`? {opacity: '1'}: {}}>
+                            {item.text}
+                    </p>
+                );
+            }
+        });
+    }
+
+    const renderForm = (text, id) => {
+        return (
+            <div key={id} data-id={id} style={showEl === `${id}`? {opacity: '1'}: {}}>
+                <textarea rows="4" cols="100" defaultValue={text} />
+                <Button text="Great, just send it right away!" action="send" color="copper" message={text}/>
+                <Button text="Crap, better do it again" action="delete" color="grey"/>
+            </div>
+        );
+    }
 
     return (
         <div className="layout layout__story" ref={ref}>
-            <p data-id='1' style={showEl === '1'? {opacity: '1'}: {}}>A long long time ago, there was an ordinary, likeable human, called xyz.</p>
-            <p data-id='2' style={showEl === '2'? {opacity: '1'}: {}}>XYZ was getting disillusioned from the housing market, dreaming of an affordable, decent space he/she can finally call "home".</p>
-            <p data-id='3' style={showEl === '3'? {opacity: '1'}: {}}>Neither did he/she feel comfortable in a tiny, single appartment with nobody around.</p>
-            <p data-id='4' style={showEl === '4'? {opacity: '1'}: {}}>Nor in a bigger, shared one, where different living standards kept clashing.</p>
-            <p data-id='5' style={showEl === '5'? {opacity: '1'}: {}}>So he/she decided to find a solution which might mix the best of both worlds. </p>
-            <p data-id='6' style={showEl === '6'? {opacity: '1'}: {}}>He/she finds this website and wants to seek help. She starts her email like this:</p>
-            <div data-id='7' style={showEl === '7'? {opacity: '1'}: {}}>
-                <textarea rows="4" cols="100" defaultValue={textAreaValue} />
-                {/* <div> */}
-                    <Button text="Send this letter" action="send" color="copper"/>
-                    <Button text="Burn it and write again" action="delete" color="grey"/>
-                {/* </div> */}
-            </div>
-            <p data-id='8' style={showEl === '8'? {opacity: '1'}: {}}>He/she clicks send and exhales deeply. He/she is excited how it will go.</p>
+            {renderStoryItems()}
         </div>
     );
 };
