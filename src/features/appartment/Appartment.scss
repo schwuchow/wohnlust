@@ -1,6 +1,4 @@
 .appartment {
-
-    // display: grid;
     align-self: center;
     position: relative;
 
@@ -14,7 +12,7 @@
         opacity: 1;
         position: absolute;
         top: 50%;
-        left: 50%;
+        right: 50%;
     }
 
     &__details {
@@ -121,15 +119,11 @@
             animation-delay: 1s;
             animation-fill-mode: forwards;
     }
-
-    & ~ div {
-        opacity: 0;
-    }
 }
 
 @keyframes moveLeftNorth {
     100% {
-        transform: translateX(-30rem) translateY(10rem);
+        transform: translateX(-30rem) translateY(25rem);
     }
 }
 
@@ -139,7 +133,7 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(40rem) translateY(-10rem);
+        transform: translateX(40rem) translateY(-35rem);
     }
 }
 
@@ -160,7 +154,7 @@
 
 @keyframes moveLeftEast {
     100% {
-        transform: translateX(-70rem);
+        transform: translateX(-65rem);
     }
 }
 
@@ -170,7 +164,7 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(60rem) translateY(-10rem);
+        transform: translateX(40rem) translateY(-35rem);
     }
 }
 
@@ -191,7 +185,7 @@
 
 @keyframes moveLeftSouth {
     100% {
-        transform: translateX(-30rem) translateY(-10rem);
+        transform: translateX(-30rem) translateY(-25rem);
     }
 }
 
@@ -201,12 +195,12 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(40rem) translateY(-10rem);
+        transform: translateX(40rem) translateY(-35rem);
     }
 }
 
 .anim-west {
-    // animation: moveLeftWest 1s ease-in-out;
+    animation: moveLeftWest 1s ease-in-out;
     animation-fill-mode: forwards;
 
     .appartment__roof, label {
@@ -215,14 +209,13 @@
 
     .appartment__details {
             animation: moveRightWest 1s ease-in-out;
-            // animation-delay: 1s;
             animation-fill-mode: forwards;
     }
 }
 
 @keyframes moveLeftWest {
     100% {
-        // transform: translateX(-30rem) translateY(10rem);
+        transform: translateX(-10rem);
     }
 }
 
@@ -232,6 +225,6 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(40rem) translateY(-10rem);
+        transform: translateX(40rem) translateY(-35rem);
     }
 }

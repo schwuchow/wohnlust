@@ -11,6 +11,7 @@ class Appartment extends React.Component {
         this.state = {
             showDetails: false
         }
+        this.appartment = React.createRef();
     }
 
     showProps = () => {
@@ -32,8 +33,22 @@ class Appartment extends React.Component {
         )
     }
 
-    handleClick = () => {
+    handleClick = (orientation) => {
+
+        if (!this.state.showDetails) {
+            this.props.parentFn(`anim-${orientation}`);
+        } else {
+            this.props.parentFn('');
+        }
+
         this.setState({showDetails: !this.state.showDetails});
+
+        // window.scrollTo({
+        //     top: this.appartment.current.offsetTop/2,
+        //     left: 0,
+        //     behavior: 'smooth'
+        // });
+        // this.appartment.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     mapOrientationToRoomLetter = () => {
@@ -50,7 +65,10 @@ class Appartment extends React.Component {
         const roomLetter = this.mapOrientationToRoomLetter();
 
         return (
-            <div className={`appartment ${'appartment--' + this.props.orientation} ${this.state.showDetails? `anim-${this.props.orientation}`: ''}`} onClick={this.handleClick}>
+            <div
+                className={`appartment ${'appartment--' + this.props.orientation} ${this.state.showDetails? `anim-${this.props.orientation}`: ''}`}
+                onClick={() => this.handleClick(this.props.orientation)}
+                ref={this.appartment}>
                 <label>Room {roomLetter}</label>
                 <img src={imgAppartment} className="appartment__room" alt="Appartment" />
                 <img src={imgRoofAppartment} className="appartment__roof" alt="Appartment"/>
