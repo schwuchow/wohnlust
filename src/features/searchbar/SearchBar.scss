@@ -15,8 +15,12 @@
             margin-right: 1rem;
             padding-left: 1rem;
 
+            &:hover {
+                outline: 2px solid var(--c-light-grey-outline);
+            }
+
             &:focus {
-                outline: 3px solid rgba(68,156,111, .5);
+                outline: 2px solid var(--c-grey-outline);
             }
         }
 

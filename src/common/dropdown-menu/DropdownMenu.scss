@@ -10,8 +10,9 @@
         box-shadow: inset 5px 5px 10px rgba(0,0,0, .3), 
         inset -8px -8px 20px rgba(255,255,255, 1);
         background-color: rgba(255,255,255, .5);
+        position: relative;
 
-        i {
+        .arrow-down {
             border: solid black;
             border-width: 0 3px 3px 0;
             padding: 10px;
@@ -20,12 +21,30 @@
             position: relative;
             bottom: 4.5rem;
             right: 2rem;
+            transition: .2s;
 
             @media screen and (max-width: 1024px) {
                 padding: 8px;
                 bottom: 4rem;
             }
         }
+
+        &:hover .arrow-down {
+            border-color: var(--c-copper);
+            transform: rotate(135deg) translateX(20px);
+            transform-origin: right;
+        }
+
+        // &::before {
+        //     content: '';
+        //     display: block;
+        //     position: absolute;
+        //     top: 0;
+        //     right: 0;
+        //     width: 6rem;
+        //     height: 100%;
+        //     background-color: rgba(255,255,255, .7);
+        // }
     }
 
     &__current-select, &__list li {
@@ -49,11 +68,14 @@
         z-index: 1;
 
         li {
-            margin-top: 4px;
+            // margin-top: 4px;
             // border: 1px solid rgba(0,0,0, .3);
-            background-color: rgba(255, 255, 255, .8);
-            box-shadow: 1px 1px 1px rgba(0,0,0, .3),
-            -5px -5px 5px rgba(255,255,255, .3);
+            // background-color: rgba(255, 255, 255, .8);
+            // box-shadow: 1px 1px 1px rgba(0,0,0, .3),
+            // -5px -5px 5px rgba(255,255,255, .3);
+            // box-shadow: inset 5px 5px 10px rgba(0,0,0, .3),
+            // inset -8px -8px 20px rgba(255,255,255, 1);
+            background-color: rgba(255,255,255, .5);
         }
 
         li:hover {

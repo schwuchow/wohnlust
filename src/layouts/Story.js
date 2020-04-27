@@ -59,12 +59,23 @@ const Story = () => {
         });
     }
 
+    const deleteMsg = () => {
+        // TODO
+    }
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+    }
+
     const renderForm = (text, id) => {
         return (
             <div key={id} data-id={id} style={showEl === `${id}`? {opacity: '1'}: {}}>
                 <textarea rows="4" cols="100" defaultValue={text} />
                 <Button text="Great, just send it right away!" action="send" color="copper" message={text}/>
-                <Button text="Crap, better do it again" action="delete" color="grey"/>
+                <Button text="Crap, better do it again..." action="delete" color="grey" onClick={deleteMsg}/>
             </div>
         );
     }
@@ -72,6 +83,7 @@ const Story = () => {
     return (
         <div className="layout layout__story" ref={ref}>
             {renderStoryItems()}
+            <div className="scrollTop" onClick={scrollToTop}><i class="arrow-up"></i></div>
         </div>
     );
 };
