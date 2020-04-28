@@ -10,7 +10,7 @@ const Button = props => {
             case "route": history.push(props.path); break;
             case "send":
                 window.location.href = `mailto:user@example.com?subject=Request for more information&body=${props.message}`; break;
-            case "delete": break;
+            case "delete": props.delete(); break;
             default: return;
         }
     }

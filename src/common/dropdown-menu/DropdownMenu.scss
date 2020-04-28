@@ -1,6 +1,7 @@
 .dropdown-menu {
     list-style: none;
     width: 50%;
+    height: 5rem;
     text-align: left;
     cursor: pointer;
 
@@ -21,35 +22,46 @@
             position: relative;
             bottom: 4.5rem;
             right: 2rem;
-            transition: .2s;
-
-            @media screen and (max-width: 1024px) {
-                padding: 8px;
-                bottom: 4rem;
-            }
+            transition: .5s;
         }
 
         &:hover .arrow-down {
             border-color: var(--c-copper);
-            transform: rotate(135deg) translateX(20px);
-            transform-origin: right;
+            transform: rotate(135deg) translateY(-8px);
         }
 
-        // &::before {
-        //     content: '';
-        //     display: block;
-        //     position: absolute;
-        //     top: 0;
-        //     right: 0;
-        //     width: 6rem;
-        //     height: 100%;
-        //     background-color: rgba(255,255,255, .7);
-        // }
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6.5rem;
+            height: 100%;
+            background-color: rgba(255,255,255, .7);
+            // box-shadow:  inset 5px 5px 5px rgba(0,0,0, .3),
+            // inset -10px -10px 10px rgba(255,255,255, .5);
+            // box-shadow: 5px 5px 5px rgba(0,0,0, .3),
+            //  -10px -10px 10px rgba(255,255,255, .5);
+            box-shadow: -5px 0px 5px rgba(0,0,0, .3),
+             0px 10px 0px rgba(255,255,255, .5);
+        }
+
+        @media screen and (max-width: 1024px) {
+            .arrow-down {
+                padding: 8px;
+                bottom: 4rem;
+            }
+
+            &::before {
+                width: 5.7rem;
+            }
+        }
     }
 
     &__current-select, &__list li {
-        height: 50px;
-        line-height: 50px;
+        height: inherit;
+        line-height: 5rem;
         cursor: pointer;
         padding-left: 1rem;
 
@@ -63,16 +75,15 @@
     &__list {
         display: none;
         position: relative;
-        // box-shadow: inset -5px -5px 10px rgba(0,0,0, .3),
-        // inset 5px 5px 10px rgba(255,255,255, .3);
         z-index: 1;
+        box-shadow: inset -5px -5px 10px rgba(0,0,0, .3),
+        inset 8px 8px 20px rgba(255,255,255, .8);
 
         li {
             // margin-top: 4px;
             // border: 1px solid rgba(0,0,0, .3);
-            // background-color: rgba(255, 255, 255, .8);
-            // box-shadow: 1px 1px 1px rgba(0,0,0, .3),
-            // -5px -5px 5px rgba(255,255,255, .3);
+            box-shadow: 1px 1px 1px rgba(0,0,0, .3),
+            -5px -5px 5px rgba(255,255,255, .3);
             // box-shadow: inset 5px 5px 10px rgba(0,0,0, .3),
             // inset -8px -8px 20px rgba(255,255,255, 1);
             background-color: rgba(255,255,255, .5);

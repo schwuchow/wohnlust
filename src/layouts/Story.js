@@ -3,8 +3,9 @@ import Button from '../common/button/Button';
 
 const Story = () => {
     const [showEl, setShowEl] = useState('');
+    const [textareaValue, setTextAreaValue] = useState(`Hello Mr. Realtor, I'm a looking for a great place to live. Could you get in touch with me?`);
 
-    const ref = useRef();
+    const storyRef = useRef();
 
     useEffect(() => {
 
@@ -24,14 +25,14 @@ const Story = () => {
             });
         }
 
-        if (ref.current) {
-            const childrenNodes = ref.current.childNodes;
+        if (storyRef.current) {
+            const childrenNodes = storyRef.current.childNodes;
 
             childrenNodes.forEach(nodeToObserve => {
                 observer.observe(nodeToObserve);
             })
         }
-    }, [ref]);
+    }, [storyRef]);
 
     const renderStoryItems = () => {
         const storyItems = [
@@ -41,8 +42,8 @@ const Story = () => {
             {text: 'Nor in a bigger, shared one, where different living standards kept clashing.'},
             {text: 'So XYZ decided to find a solution which might mix the best of both worlds.'},
             {text: 'XYZ finds this website where XYZ wants to seek help. XYZ starts the email like this:'},
-            {textArea: `Hello Mr. Realtor, I'm a looking for a great place to live. Could you get in touch with me?`},
-            {text: 'XYZ clicks send and looks pleased. How will the story continue?'}
+            {textArea: textareaValue},
+            {text: 'XYZ clicks send and smiles. How will XYZ\'s story continue?'}
         ];
 
         return storyItems.map((item, i) => {
@@ -60,7 +61,7 @@ const Story = () => {
     }
 
     const deleteMsg = () => {
-        // TODO
+        setTextAreaValue('');
     }
 
     const scrollToTop = () => {
@@ -73,15 +74,21 @@ const Story = () => {
     const renderForm = (text, id) => {
         return (
             <div key={id} data-id={id} style={showEl === `${id}`? {opacity: '1'}: {}}>
-                <textarea rows="4" cols="100" defaultValue={text} />
+                <textarea
+                    rows="4"
+                    cols="100"
+                    value={text}
+                    onChange={(e) => setTextAreaValue(e.target.value)}
+                    placeholder="Type your message to the realtor"
+                />
                 <Button text="Great, just send it right away!" action="send" color="copper" message={text}/>
-                <Button text="Crap, better do it again..." action="delete" color="grey" onClick={deleteMsg}/>
+                <Button text="Crap, better do it again..." action="delete" color="grey" delete={deleteMsg}/>
             </div>
         );
     }
 
     return (
-        <div className="layout layout__story" ref={ref}>
+        <div className="layout layout__story" ref={storyRef}>
             {renderStoryItems()}
             <div className="scrollTop" onClick={scrollToTop}><i class="arrow-up"></i></div>
         </div>

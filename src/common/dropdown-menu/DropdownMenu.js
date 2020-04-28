@@ -36,14 +36,17 @@ class DropdownMenu extends React.Component {
 
         if (this.props.unitList) {
             const sameCityList = this.props.unitList.filter(unit => 
-                unit.location[0].city === this.props.currentDisplay.location[0].city)
+                (unit.location[0].city === this.props.currentDisplay.location[0].city)
+                &&
+                (JSON.stringify(unit) !== JSON.stringify(this.props.currentDisplay))
+            );
   
             return sameCityList.map((unit, i) => {
 
                 const {street, postalCode} = unit.location[0];
 
                 return (
-                    <li key={i} onClick={this.selectThisAddress}>{street}<span>{postalCode}</span></li>
+                    <li key={i} onClick={() => this.selectThisAddress(unit)}>{street}<span>{postalCode}</span></li>
                 );
             })
         } else {
@@ -51,9 +54,13 @@ class DropdownMenu extends React.Component {
         }
     }
 
+    selectThisAddress = (city) => {
+        this.props.setCityOnDisplay(city);
+    }
+
     render () {
         return (
-            <ul className="dropdown-menu">
+            <ul className="dropdown-menu" style={this.state.dropdownClicked? {outline: "1px solid var(--c-light-grey-outline)"}: {}}>
                 <li href="#" className="dropdown-menu__current-select" onClick={this.toggleDropdownItems}>
                     {this.displayCurrentUnitAddress()}
                     <i className="arrow-down"></i>

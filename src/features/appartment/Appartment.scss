@@ -1,10 +1,10 @@
 .appartment {
     align-self: center;
     position: relative;
+    cursor: pointer;
 
     &:hover &__roof, &:hover label {
         opacity: 0;
-        cursor: pointer;
     }
 
     label {
