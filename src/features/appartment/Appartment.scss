@@ -12,7 +12,7 @@
         opacity: 1;
         position: absolute;
         top: 50%;
-        right: 50%;
+        left: 17%;
     }
 
     &__details {
@@ -33,6 +33,11 @@
             list-style: none;
             font-size: .8em;
         }
+
+        @media screen and (max-width: 767px) {
+            width: 80vw;
+            padding: 3rem;
+        }
     }
 
     &__roof {
@@ -48,19 +53,19 @@
     &--north {
         grid-row: 2 / 3;
         grid-column: 2 / 3;
-        top: 2.5rem;
+        top: 7%;
 
         .appartment__roof {
             position: relative;
-            top: -1rem;
+            top: -3%;
         }
     }
 
     &--east {
         grid-row: 3 / 4;
         grid-column: 3 / 4;
-        top: -1rem;
-        right: 6.5rem;
+        top: -3%;
+        right: 18%;
 
         img {
             transform: rotate(90deg);
@@ -68,16 +73,16 @@
 
         .appartment__roof {
             position: relative;
-            top: 1rem;
-            left: 2rem;
+            top: 3%;
+            left: 5.5%;
         }
     }
 
     &--west {
         grid-row: 3 / 4;
         grid-column: 1 / 2;
-        top: -1rem;
-        left: 6.5rem;
+        top: -2.6%;
+        left: 18%;
 
         img {
             transform: rotate(-90deg);
@@ -85,15 +90,15 @@
 
         .appartment__roof {
             position: relative;
-            top: 1rem;
-            right: 2rem;
+            top: 3%;
+            right: 5.5%;
         }
     }
 
     &--south {
         grid-row: 4 / 5;
         grid-column: 2 / 3;
-        top: -4.5rem;
+        top: -15%;
 
         img {
             transform: rotate(180deg);
@@ -101,7 +106,7 @@
 
         .appartment__roof {
             position: relative;
-            top: 3rem;
+            top: 10%;
         }
     }
 }
@@ -123,7 +128,8 @@
 
 @keyframes moveLeftNorth {
     100% {
-        transform: translateX(-30rem) translateY(25rem);
+        // transform: translateX(-30rem) translateY(25rem);
+        transform: translateX(-90%) translateY(100%);
     }
 }
 
@@ -133,7 +139,26 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(40rem) translateY(-35rem);
+        // transform: translateX(40rem) translateY(-35rem);
+        transform: translateX(70%) translateY(-85%);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    @keyframes moveLeftNorth {
+        100% {
+            transform: translateY(20%);
+        }
+    }
+
+    @keyframes moveRightNorth {
+        0% {
+            display: block;
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(-30%) translateY(20%);
+        }
     }
 }
 
@@ -154,7 +179,8 @@
 
 @keyframes moveLeftEast {
     100% {
-        transform: translateX(-65rem);
+        // transform: translateX(-65rem);
+        transform: translateX(-165%);
     }
 }
 
@@ -164,7 +190,26 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(40rem) translateY(-35rem);
+        // transform: translateX(40rem) translateY(-35rem);
+        transform: translateX(70%) translateY(-80%);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    @keyframes moveLeftEast {
+        100% {
+            transform: translateX(-80%) translateY(-70%);
+        }
+    }
+
+    @keyframes moveRightEast {
+        0% {
+            display: block;
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(-30%) translateY(20%);
+        }
     }
 }
 
@@ -185,7 +230,8 @@
 
 @keyframes moveLeftSouth {
     100% {
-        transform: translateX(-30rem) translateY(-25rem);
+        // transform: translateX(-30rem) translateY(-25rem);
+        transform: translateX(-90%) translateY(-105%);
     }
 }
 
@@ -195,7 +241,26 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(40rem) translateY(-35rem);
+        // transform: translateX(40rem) translateY(-35rem);
+        transform: translateX(70%) translateY(-80%);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    @keyframes moveLeftSouth {
+        100% {
+            transform: translateY(-150%);
+        }
+    }
+
+    @keyframes moveRightSouth {
+        0% {
+            display: block;
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(-30%) translateY(20%);
+        }
     }
 }
 
@@ -215,7 +280,7 @@
 
 @keyframes moveLeftWest {
     100% {
-        transform: translateX(-10rem);
+        transform: translateX(-10%);
     }
 }
 
@@ -225,6 +290,24 @@
     }
     100% {
         opacity: 1;
-        transform: translateX(40rem) translateY(-35rem);
+        transform: translateX(70%) translateY(-80%);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    @keyframes moveLeftWest {
+        100% {
+            transform: translateX(80%) translateY(-70%);
+        }
+    }
+
+    @keyframes moveRightWest {
+        0% {
+            display: block;
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(-30%) translateY(20%);
+        }
     }
 }

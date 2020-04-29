@@ -47,7 +47,7 @@ class Appartments extends React.Component {
         return (
             <div className="layout layout__appartments">
                 <div className="dropdown-menu-container">
-                    <label className="layout__appartments__city">{displayedCity.location[0].city}</label>
+                    <label className="dropdown-menu-container__city">{displayedCity.location[0].city}</label>
                     <DropdownMenu currentDisplay={displayedCity} unitList={this.props.appartmentUnits}/>
                 </div>
                 <div className="appartment-container" ref={this.appartmentContainer}>
