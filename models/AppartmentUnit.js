@@ -3,7 +3,7 @@ const Location = require('./Location');
 const Appartment = require('./Appartment');
 
 const AppartmentUnitSchema = mongoose.Schema({
-    location: [Location.schema],
+    location: Location.schema,
     appartments: [Appartment.schema],
     yearOFConstruction: {
         type: Number,

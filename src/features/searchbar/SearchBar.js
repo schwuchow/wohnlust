@@ -63,23 +63,23 @@ class SearchBar extends React.Component {
 
     getInputMatchesCities = (searchValue, appartmentUnits) => {
         return appartmentUnits.filter(app => {
-            return app.location[0].city.toLowerCase().includes(searchValue.toLowerCase())});
+            return app.location.city.toLowerCase().includes(searchValue.toLowerCase())});
     }
 
     getUniqueFilteredCities = (filteredCities) => {
         return filteredCities.filter((city, i, cityArr) => {
             if (i >= 5) return true;
-            return cityArr.map(c => c.location[0].city).indexOf(city.location[0].city) === i;
+            return cityArr.map(c => c.location.city).indexOf(city.location.city) === i;
         });
     }
 
     checkInputIsSuggestion = (searchValue, uniqueCities) => {
-        return (uniqueCities.length === 1 && searchValue.toLowerCase() === uniqueCities[0].location[0].city.toLowerCase())
+        return (uniqueCities.length === 1 && searchValue.toLowerCase() === uniqueCities[0].location.city.toLowerCase())
     }
 
     handleClickedCity = (city) => {
         this.saveClickedCity(city);
-        this.props.setSearchField(city.location[0].city);
+        this.props.setSearchField(city.location.city);
     }
 
     saveClickedCity = (city) => {
@@ -95,7 +95,7 @@ class SearchBar extends React.Component {
                     className="auto-suggest"
                     data-id="auto-suggest"
                     onClick={() => this.handleClickedCity(city)}>
-                        {city.location[0].city}
+                        {city.location.city}
                 </span>
             )
         );
