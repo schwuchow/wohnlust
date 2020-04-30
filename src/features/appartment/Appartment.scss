@@ -111,8 +111,29 @@
     }
 }
 
-.anim-north {
-    animation: moveLeftNorth 1s ease-in-out;
+@mixin roomAnim($animName, $xPercent, $yPercent) {
+    @keyframes #{$animName} {
+        100% {
+            transform: translateX($xPercent) translateY($yPercent);
+        }
+    }
+}
+
+@mixin descriptionAnim($animName, $xPercent, $yPercent) {
+    @keyframes #{$animName} {
+        0% {
+            display: block;
+        }
+        100% {
+            opacity: 1;
+            transform: translateX($xPercent) translateY($yPercent);
+        }
+    }
+}
+
+%animation-props {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 
     .appartment__roof, label {
@@ -120,194 +141,71 @@
     }
 
     .appartment__details {
-            animation: moveRightNorth 1s ease-in-out;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
     }
 }
 
-@keyframes moveLeftNorth {
-    100% {
-        // transform: translateX(-30rem) translateY(25rem);
-        transform: translateX(-90%) translateY(100%);
+.anim-north {
+    animation-name: moveRoomNorth;
+    @extend %animation-props;
+
+    .appartment__details {
+        animation-name: moveDescriptionNorth;
     }
 }
 
-@keyframes moveRightNorth {
-    0% {
-        display: block;
-    }
-    100% {
-        opacity: 1;
-        // transform: translateX(40rem) translateY(-35rem);
-        transform: translateX(70%) translateY(-85%);
-    }
-}
-
-@media screen and (max-width: 767px) {
-    @keyframes moveLeftNorth {
-        100% {
-            transform: translateY(20%);
-        }
-    }
-
-    @keyframes moveRightNorth {
-        0% {
-            display: block;
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(-30%) translateY(20%);
-        }
-    }
-}
+@include roomAnim(moveRoomNorth, -90%, 100%);
+@include descriptionAnim(moveDescriptionNorth, 70%, -85%);
 
 .anim-east {
-    animation: moveLeftEast 1s ease-in-out;
-    animation-fill-mode: forwards;
-
-    .appartment__roof, label {
-        opacity: 0;
-    }
+    animation-name: moveRoomEast;
+    @extend %animation-props;
 
     .appartment__details {
-            animation: moveRightEast 1s ease-in-out;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
+        animation-name: moveDescriptionEast;
     }
 }
 
-@keyframes moveLeftEast {
-    100% {
-        // transform: translateX(-65rem);
-        transform: translateX(-165%);
-    }
-}
-
-@keyframes moveRightEast {
-    0% {
-        display: block;
-    }
-    100% {
-        opacity: 1;
-        // transform: translateX(40rem) translateY(-35rem);
-        transform: translateX(70%) translateY(-80%);
-    }
-}
-
-@media screen and (max-width: 767px) {
-    @keyframes moveLeftEast {
-        100% {
-            transform: translateX(-80%) translateY(-70%);
-        }
-    }
-
-    @keyframes moveRightEast {
-        0% {
-            display: block;
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(-30%) translateY(20%);
-        }
-    }
-}
+@include roomAnim(moveRoomEast, -165%, 0);
+@include descriptionAnim(moveDescriptionEast, 70%, -80%);
 
 .anim-south {
-    animation: moveLeftSouth 1s ease-in-out;
-    animation-fill-mode: forwards;
-
-    .appartment__roof, label {
-        opacity: 0;
-    }
+    animation-name: moveRoomSouth;
+    @extend %animation-props;
 
     .appartment__details {
-            animation: moveRightSouth 1s ease-in-out;
-            animation-delay: 1s;
-            animation-fill-mode: forwards;
+        animation-name: moveDescriptionSouth;
     }
 }
 
-@keyframes moveLeftSouth {
-    100% {
-        // transform: translateX(-30rem) translateY(-25rem);
-        transform: translateX(-90%) translateY(-105%);
-    }
-}
-
-@keyframes moveRightSouth {
-    0% {
-        display: block;
-    }
-    100% {
-        opacity: 1;
-        // transform: translateX(40rem) translateY(-35rem);
-        transform: translateX(70%) translateY(-80%);
-    }
-}
-
-@media screen and (max-width: 767px) {
-    @keyframes moveLeftSouth {
-        100% {
-            transform: translateY(-150%);
-        }
-    }
-
-    @keyframes moveRightSouth {
-        0% {
-            display: block;
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(-30%) translateY(20%);
-        }
-    }
-}
+@include roomAnim(moveRoomSouth, -90%, -105%);
+@include descriptionAnim(moveDescriptionSouth, 70%, -80%);
 
 .anim-west {
-    animation: moveLeftWest 1s ease-in-out;
-    animation-fill-mode: forwards;
-
-    .appartment__roof, label {
-        opacity: 0;
-    }
+    animation-name: moveRoomWest;
+    @extend %animation-props;
 
     .appartment__details {
-            animation: moveRightWest 1s ease-in-out;
-            animation-fill-mode: forwards;
+        animation-name: moveDescriptionWest;
     }
 }
 
-@keyframes moveLeftWest {
-    100% {
-        transform: translateX(-10%);
-    }
-}
-
-@keyframes moveRightWest {
-    0% {
-        display: block;
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(70%) translateY(-80%);
-    }
-}
+@include roomAnim(moveRoomWest, -10%, 0);
+@include descriptionAnim(moveDescriptionWest, 70%, -80%);
 
 @media screen and (max-width: 767px) {
-    @keyframes moveLeftWest {
-        100% {
-            transform: translateX(80%) translateY(-70%);
-        }
-    }
+    @include roomAnim(moveRoomNorth, 0, 20%);
+    @include descriptionAnim(moveDescriptionNorth, -30%, 20%);
 
-    @keyframes moveRightWest {
-        0% {
-            display: block;
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(-30%) translateY(20%);
-        }
-    }
+    @include roomAnim(moveRoomEast, -80%, -70%);
+    @include descriptionAnim(moveDescriptionEast, -30%, 20%);
+
+    @include roomAnim(moveRoomSouth, 0, -150%);
+    @include descriptionAnim(moveDescriptionSouth, -30%, 20%);
+
+    @include roomAnim(moveRoomWest, 80%, -70%);
+    @include descriptionAnim(moveDescriptionWest, -30%, 20%);
 }
