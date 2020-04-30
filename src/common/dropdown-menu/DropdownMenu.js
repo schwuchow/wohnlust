@@ -9,7 +9,22 @@ class DropdownMenu extends React.Component {
         super(props);
 
         this.state = { dropdownClicked: false };
+        this.dropdownMenu = React.createRef();
     }
+
+    componentDidMount = () => {
+        document.addEventListener("mousedown", this.handleClickOutside);
+    }
+
+    componentWillUnmount = () => {
+        document.removeEventListener("mousedown", this.handleClickOutside);
+    }
+
+    handleClickOutside = event => {
+        if (!this.dropdownMenu.current.contains(event.target)) {
+            this.setState({ dropdownClicked: false });
+        }
+    };
 
     toggleDropdownItems = () => {
         this.setState({ dropdownClicked: !this.state.dropdownClicked });
@@ -32,26 +47,36 @@ class DropdownMenu extends React.Component {
         }
     }
 
-    renderDropDownItems = () => {
+    renderDropDownSuggestions = () => {
 
         if (this.props.unitList) {
-            const sameCityList = this.props.unitList.filter(unit => 
-                (unit.location[0].city === this.props.currentDisplay.location[0].city)
-                &&
-                (JSON.stringify(unit) !== JSON.stringify(this.props.currentDisplay))
-            );
-  
-            return sameCityList.map((unit, i) => {
+            const sameCityList = this.filterOtherLocationsInSameCity(this.props.unitList);
 
-                const {street, postalCode} = unit.location[0];
+            if (sameCityList.length > 0) {
+                return sameCityList.map((unit, i) => {
 
+                    const {street, postalCode} = unit.location[0];
+
+                    return (
+                        <li key={i} onClick={() => this.selectThisAddress(unit)}>{street}<span>{postalCode}</span></li>
+                    );
+                })
+            } else {
                 return (
-                    <li key={i} onClick={() => this.selectThisAddress(unit)}>{street}<span>{postalCode}</span></li>
+                    <li>No other locations available yet ＜(。_。)＞</li>
                 );
-            })
+            }
         } else {
             return;
         }
+    }
+
+    filterOtherLocationsInSameCity = (appartmentUnits) => {
+        return appartmentUnits.filter(unit =>
+            (unit.location[0].city === this.props.currentDisplay.location[0].city)
+            &&
+            (JSON.stringify(unit) !== JSON.stringify(this.props.currentDisplay))
+        );
     }
 
     selectThisAddress = (city) => {
@@ -60,13 +85,15 @@ class DropdownMenu extends React.Component {
 
     render () {
         return (
-            <ul className="dropdown-menu" style={this.state.dropdownClicked? {outline: "1px solid var(--c-light-grey-outline)"}: {}}>
+            <ul className="dropdown-menu"
+                style={this.state.dropdownClicked? {outline: "1px solid var(--c-light-grey-outline)"}: {}}
+                ref={this.dropdownMenu}>
                 <li href="#" className="dropdown-menu__current-select" onClick={this.toggleDropdownItems}>
                     {this.displayCurrentUnitAddress()}
                     <i className="arrow-down"></i>
                 </li>
                 <div style={this.state.dropdownClicked? {display:"block"}: {}} className="dropdown-menu__list">
-                    {this.renderDropDownItems()}
+                    {this.renderDropDownSuggestions()}
                 </div>
             </ul>
         )

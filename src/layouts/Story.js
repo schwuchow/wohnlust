@@ -61,7 +61,7 @@ const Story = () => {
     }
 
     const deleteMsg = () => {
-        setTextAreaValue('');
+        setTextAreaValue(' ');
     }
 
     const scrollToTop = () => {

@@ -13,7 +13,24 @@ class SearchBar extends React.Component {
             filteredUniqueCities: [],
             path: '/appartments'
          };
+
+         this.input = React.createRef();
     }
+
+    componentDidMount = () => {
+        document.addEventListener("mousedown", this.handleClickOutside);
+    }
+
+    componentWillUnmount = () => {
+        document.removeEventListener("mousedown", this.handleClickOutside);
+    }
+
+    handleClickOutside = event => {
+        if (!this.input.current.contains(event.target)
+        && event.target.dataset.id !== "auto-suggest") {
+            this.setState({ filteredUniqueCities: [] });
+        }
+    };
 
     componentDidUpdate = (prevProps) => {
         if ((prevProps.searchField !== this.props.searchField)
@@ -76,6 +93,7 @@ class SearchBar extends React.Component {
                     style={{top: `${40*(i+1)}px`}}
                     key={city._id}
                     className="auto-suggest"
+                    data-id="auto-suggest"
                     onClick={() => this.handleClickedCity(city)}>
                         {city.location[0].city}
                 </span>
@@ -91,7 +109,9 @@ class SearchBar extends React.Component {
                         type="text" 
                         placeholder="In"
                         onChange={this.searchValues}
+                        onKeyDown={this.moveThroughSuggestions}
                         value={this.props.searchField}
+                        ref={this.input}
                     ></input>
                     {this.renderSuggestions(this.state.filteredUniqueCities)}
                     <Button text="Search" action="route" path={this.state.path} color="copper" />

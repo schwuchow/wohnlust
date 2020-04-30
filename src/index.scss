@@ -45,29 +45,17 @@ body {
   background-color: var(--c-white);
   background-image:
     url(./img/background_brown.svg),
-    url(./img/background_green.svg),
-    url(./img/background_blue.svg),
-    url(./img/background_copper.svg),
-    url(./img/background_yellow.svg),
-    url(./img/background_brown.svg);
+    url(./img/background_green.svg);
   background-repeat: no-repeat;
   background-position:
     top -40vh left 10vw,
-    top 60vh right -20vw,
-    top 160vh left -10vw,
-    top 250vh right 0,
-    top 400vh left 0,
-    top 540vh right 0;
+    top 60vh right -20vw;
   background-size: 60%;
 
   @media screen and (max-width: 767px) {
     background-position:
     top -40vh left 10vw,
-    top 60vh right -20vw,
-    top 160vh left -10vw,
-    top 250vh right 0,
-    top 400vh left 0,
-    top 540vh right 0;
+    top 60vh right -20vw;
     background-size: 80%;
   }
 }

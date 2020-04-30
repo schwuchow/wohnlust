@@ -17,8 +17,12 @@ class Appartments extends React.Component {
         this.appartmentContainer = React.createRef();
     }
 
-    callbackFn = (childData) => {
-        this.setState({currentlyAnimatedEl: childData});
+    setCurrentylyAnimEl = (childOrientation) => {
+        this.setState({currentlyAnimatedEl: childOrientation});
+
+        window.setTimeout(() => {
+        this.appartmentContainer.current.lastChild.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+        }, 800);
     }
 
     componentDidUpdate = () => {
@@ -27,17 +31,13 @@ class Appartments extends React.Component {
             const isAnimated = children.filter(child => child.classList.contains(this.state.currentlyAnimatedEl));
             const notAnimated = children.filter(child => !child.classList.contains(this.state.currentlyAnimatedEl));
 
-            if (isAnimated.length === 1) {
-                notAnimated.forEach(el => {
-                    el.style.visibility = 'hidden';
-                    el.style.opacity = '0';
-                })
-            } else {
-                notAnimated.forEach(el => {
-                    el.style.visibility = 'visible';
-                    el.style.opacity = '1';
-                })
-            }
+            const visibility = (isAnimated.length === 1) ? 'hidden' : 'visible';
+            const opacity = (isAnimated.length === 1) ? '0' : '1';
+
+            notAnimated.forEach(el => {
+                el.style.visibility = visibility;
+                el.style.opacity = opacity;
+            });
         }
     }
 
@@ -57,7 +57,7 @@ class Appartments extends React.Component {
                                 key={i}
                                 appartment={room}
                                 orientation={room.orientation}
-                                parentFn={this.callbackFn}
+                                setOrientationInParent={this.setCurrentylyAnimEl}
                             />
                         })
                     }
