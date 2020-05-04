@@ -11,6 +11,7 @@ const Button = props => {
             case "send":
                 window.location.href = `mailto:user@example.com?subject=Request for more information&body=${props.message}`; break;
             case "delete": props.delete(); break;
+            case "reset": props.reset(); break;
             default: return;
         }
     }

@@ -3,7 +3,9 @@ import Button from '../common/button/Button';
 
 const Story = () => {
     const [showEl, setShowEl] = useState('');
-    const [textareaValue, setTextAreaValue] = useState(`Hello Mr. Realtor, I'm a looking for a great place to live. Could you get in touch with me?`);
+    const defaultTextAreaValue = `Hello Mr. Realtor, I'm a looking for a great place to live. Could you get in touch with me?`;
+    const [textareaValue, setTextAreaValue] = useState(defaultTextAreaValue);
+    const [deleteBtnSelected, setDeleteBtn] = useState(true);
 
     const storyRef = useRef();
 
@@ -36,14 +38,14 @@ const Story = () => {
 
     const renderStoryItems = () => {
         const storyItems = [
-            {text: 'A long long time ago, there was an ordinary, likeable human, called XYZ.'},
+            {text: 'Some time ago, there was an ordinary, likeable human, called XYZ.'},
             {text: 'XYZ was getting disillusioned from the housing market, dreaming of an affordable, decent space XYZ can finally call "home".'},
             {text: 'Neither did XYZ feel comfortable in a tiny, single appartment with nobody around.'},
             {text: 'Nor in a bigger, shared one, where different living standards kept clashing.'},
-            {text: 'So XYZ decided to find a solution which might mix the best of both worlds.'},
-            {text: 'XYZ finds this website where XYZ wants to seek help. XYZ starts the email like this:'},
+            {text: 'So XYZ decides to find a solution which might mix the best of both worlds.'},
+            {text: 'XYZ finds this website to seek help. The email XYZ is about to write, starts like this:'},
             {textArea: textareaValue},
-            {text: 'XYZ clicks send and smiles. How will XYZ\'s story continue?'}
+            {text: 'After clicking send, XYZ leans back in his chair. How might XYZ\'s story continue from now on?'}
         ];
 
         return storyItems.map((item, i) => {
@@ -62,6 +64,13 @@ const Story = () => {
 
     const deleteMsg = () => {
         setTextAreaValue(' ');
+        setDeleteBtn(!deleteBtnSelected);
+    }
+
+    const resetMsg = () => {
+        debugger
+        setTextAreaValue(defaultTextAreaValue);
+        setDeleteBtn(!deleteBtnSelected);
     }
 
     const scrollToTop = () => {
@@ -79,7 +88,11 @@ const Story = () => {
                     placeholder="Type your message to the realtor"
                 />
                 <Button text="Great, just send it right away!" action="send" color="copper" message={text}/>
-                <Button text="Crap, better do it again..." action="delete" color="grey" delete={deleteMsg}/>
+                {
+                    deleteBtnSelected
+                    ? <Button text="Crap, better do it again..." action="delete" color="grey" delete={deleteMsg}/>
+                    : <Button text="Actually, it wasn't too bad..." action="reset" color="grey" reset={resetMsg}/>
+                }
             </div>
         );
     }
@@ -87,7 +100,7 @@ const Story = () => {
     return (
         <div className="layout layout__story" ref={storyRef}>
             {renderStoryItems()}
-            <div className="scrollTop" onClick={scrollToTop}><i class="arrow-up"></i></div>
+            <div className="scrollTop" onClick={scrollToTop}><i className="arrow-up"></i></div>
         </div>
     );
 };

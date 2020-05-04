@@ -1,0 +1,38 @@
+.appartments-details {
+    text-align: left;
+    background: rgba(255,255,255,.2);
+    grid-column: 1 / 4;
+    align-self: start;
+    font-size: .8em;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px rgba(0,0,0,.5);
+    line-height: 2;
+
+    h1 {
+        background-color: var(--c-copper);
+        color: var(--c-white);
+        padding: 0 2rem;
+        box-shadow:  inset 10px 10px 10px rgba(0,0,0, .3),
+        inset -5px -5px 10px rgba(255,255,255, .5);
+    }
+
+    & > *:not(h1) {
+        padding: 1rem 2.5rem;
+    }
+
+    ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        h2 {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        li {
+            padding-left: 2rem;   
+        }
+    }
+}
