@@ -13,6 +13,7 @@
         position: absolute;
         top: 50%;
         left: 17%;
+        transition: .3s;
     }
 
     &__details {
@@ -21,9 +22,10 @@
         width: 40vw;
         position: absolute;
         text-align: left;
-        background-color: rgba(255,255,255,.7);
+        background-color: rgba(255,255,255,.2);
+        // background-color: var(--c-white);
         font-size: .8em;
-        border-radius: 10%;
+        border-radius: 5px;
         padding: 5rem;
         box-shadow: 2px 5px 5px rgba(0,0,0,.5);
         line-height: 2;
@@ -53,7 +55,7 @@
     &--north {
         grid-row: 2 / 3;
         grid-column: 2 / 3;
-        top: 7%;
+        top: 17%;
 
         .appartment__roof {
             position: relative;
@@ -64,7 +66,7 @@
     &--east {
         grid-row: 3 / 4;
         grid-column: 3 / 4;
-        top: -3%;
+        top: -2.6%;
         right: 18%;
 
         img {
@@ -73,7 +75,7 @@
 
         .appartment__roof {
             position: relative;
-            top: 3%;
+            top: 2.5%;
             left: 5.5%;
         }
     }
@@ -90,7 +92,7 @@
 
         .appartment__roof {
             position: relative;
-            top: 3%;
+            top: 2.5%;
             right: 5.5%;
         }
     }
@@ -98,7 +100,7 @@
     &--south {
         grid-row: 4 / 5;
         grid-column: 2 / 3;
-        top: -15%;
+        top: -24%;
 
         img {
             transform: rotate(180deg);
@@ -106,7 +108,7 @@
 
         .appartment__roof {
             position: relative;
-            top: 10%;
+            top: 8.5%;
         }
     }
 }
@@ -122,7 +124,7 @@
 @mixin descriptionAnim($animName, $xPercent, $yPercent) {
     @keyframes #{$animName} {
         0% {
-            display: block;
+            // display: block;
         }
         100% {
             opacity: 1;

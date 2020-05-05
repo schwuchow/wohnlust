@@ -17,7 +17,7 @@ const Button = props => {
     }
 
     return (
-        <button type="submit" className={`btn btn__${props.color}`}  onClick={handleBtnClick}>
+        <button type="button" className={`btn btn__${props.color}`}  onClick={handleBtnClick}>
             {(props.text==='Search') ? <i className="material-icons">search</i>:props.text}
         </button>
     );

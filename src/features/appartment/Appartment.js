@@ -36,19 +36,25 @@ class Appartment extends React.Component {
     handleClick = (orientation) => {
 
         if (!this.state.showDetails) {
-            this.props.parentFn(`anim-${orientation}`);
+            this.props.setOrientationInParent(`anim-${orientation}`);
         } else {
-            this.props.parentFn('');
+            this.props.setOrientationInParent('');
         }
 
         this.setState({showDetails: !this.state.showDetails});
 
-        // window.scrollTo({
-        //     top: this.appartment.current.offsetTop/2,
-        //     left: 0,
-        //     behavior: 'smooth'
+        // window.setTimeout(() => {
+        //     this.appartment.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // }, 900);
+
+        // window.addEventListener('transitionend', () => {
+        //     window.scrollTo({
+        //         top: this.appartment.current.offsetTop/2,
+        //         left: 0,
+        //         behavior: 'smooth'
+        //     });
+        //     // this.appartment.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
         // });
-        // this.appartment.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     mapOrientationToRoomLetter = () => {

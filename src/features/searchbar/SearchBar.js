@@ -44,6 +44,10 @@ class SearchBar extends React.Component {
         this.props.setSearchField(event.target.value);
     };
 
+    // TODO
+    moveThroughSuggestions = (event) => {
+    };
+
     filterSuggestions = (searchValue, appartmentUnits) => {
         if (searchValue !== undefined && appartmentUnits !== undefined) {
 
