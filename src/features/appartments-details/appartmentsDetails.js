@@ -7,7 +7,6 @@ class AppartmentsDetails extends React.Component {
     }
 
     render = () => {
-        console.log(this.props);
         return (
             <div className="appartments-details">
                 <h1>Appartment Properties</h1>

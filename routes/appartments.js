@@ -5,7 +5,6 @@ const AppartmentUnit = require('../models/AppartmentUnit');
 router.get('/', async(req, res) => {
     try {
         const appartmentUnit = await AppartmentUnit.find();
-        console.log(appartmentUnit);
         res.json(appartmentUnit);
     } catch(error) {
         res.json({ message: error });

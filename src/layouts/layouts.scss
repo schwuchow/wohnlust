@@ -61,10 +61,11 @@
 
     &__appartments {
         display: grid;
-        grid-template-rows: 20vh repeat(3, 1fr);
+        grid-template-rows: 20vh 1fr 2fr;
         grid-template-columns: repeat(3, 1fr);
-        align-items: center;
+        align-items: start;
         justify-content: center;
+        margin-bottom: 20rem;
 
         label {
             height: 5rem;
@@ -100,9 +101,16 @@
         }
 
         .appartment-container {
-            display: grid;
-            grid-row: 2 / 4;
+            grid-row: 3 / 5;
             grid-column: 1 / 4;
+            display: grid;
+            grid-template-rows: 10vh repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+
+            h1 {
+                grid-row: 1 / 2;
+                grid-column: 2 / 3;
+            }
 
             .shared-living-room {
                 grid-row: 3 / 4;

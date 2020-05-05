@@ -1,6 +1,7 @@
 import React from 'react';
 import Appartment from '../../features/appartment/Appartment';
 import DropdownMenu from '../../common/dropdown-menu/DropdownMenu';
+import AppartmentsDetails from '../../features/appartments-details/appartmentsDetails';
 import { connect } from 'react-redux';
 import '../layouts.scss';
 import { setCityOnDisplay } from './actionAppartments';
@@ -65,6 +66,7 @@ class Appartments extends React.Component {
                         <img src={sharedLivingSpace} alt="Shared living room"></img>
                     </div>
                 </div>
+                <AppartmentsDetails appartmentUnit={displayedCity}/>
             </div>
         );
     }
