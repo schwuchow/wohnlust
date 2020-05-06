@@ -6,15 +6,12 @@ require('dotenv').config();
 
 // Import Routes
 const appartmentsRoute = require('./routes/appartments');
-const postsRoute = require('./routes/posts');
-// const authRoute = require('./routes/auth');
 
 // Middlewares
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/appartments', appartmentsRoute);
-app.use('/posts', postsRoute);
 // app.use('/api/user', authRoute);
 
 // Connect to DB

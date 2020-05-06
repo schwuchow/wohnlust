@@ -4,6 +4,7 @@ const AppartmentSchema = mongoose.Schema({
     orientation: {
         type: String,
         required: true,
+        enum: ['south', 'west', 'north', 'east']
     },
     baseRent: {
         type: Number,
@@ -19,7 +20,8 @@ const AppartmentSchema = mongoose.Schema({
     },
     availableFrom: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now
     },
     details: [{
         type: String
