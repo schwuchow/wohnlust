@@ -94,18 +94,12 @@ nav {
         }
 
         &:hover {
-            // transform: scaleX(1.2);
-            // transform: scaleX(7) scaleY(18);
             width: 65rem;
             height: 70rem;
             top: 10rem;
             right: -30rem;
             background-color: rgba(126, 70, 70, 1);
             border-radius: 50%;
-
-            &::before, &::after {
-                // opacity: 0;
-            }
 
             &::before {
                 content: '';
@@ -134,7 +128,6 @@ nav {
         }
 
         .currentNav {
-
             background-color: rgba(126, 70, 70, 1);
 
             &::before,

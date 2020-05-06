@@ -68,7 +68,6 @@ const Story = () => {
     }
 
     const resetMsg = () => {
-        debugger
         setTextAreaValue(defaultTextAreaValue);
         setDeleteBtn(!deleteBtnSelected);
     }

@@ -1,6 +1,4 @@
 .layout {
-    grid-row: 2 / span 1;
-    grid-column: 2 / span 1;
     margin-top: 10rem;
     position: absolute;
     width: 100%;
@@ -36,7 +34,7 @@
             .info-box {
                 position: absolute;
                 top: -15rem;
-                right: -30rem;
+                right: 0rem;
                 background-color: rgba(255, 217, 0, .2);
                 font-size: 1.5rem;
                 text-align: left;
@@ -143,11 +141,11 @@
             width: 50%;
             opacity: 0;
             transition: .5s;
-            margin-top: 40rem;
+            margin-bottom: 30rem;
 
             @media screen and (max-width: 767px) {
                 font-size: 2rem;
-                margin-top: 20rem;
+                margin: 0 5rem 20rem;
             }
         }
 
@@ -270,9 +268,5 @@
                 }
             }
         }
-    }
-
-    @media screen and (max-width: 767px) {
-        grid-column: 1 / span 3;
     }
 }
