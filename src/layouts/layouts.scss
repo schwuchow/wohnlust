@@ -2,17 +2,19 @@
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
     margin-top: 10rem;
+    position: absolute;
+    width: 100%;
 
     &__home {
         display: flex;
         flex-direction: column;
         align-content: center;
-        // height: 80vh;
-        position: relative;
+        margin-bottom: 20rem;
 
         div {
             font-size: 5rem;
             margin-top: 5rem;
+            position: relative;
 
             .positive-adj {
                 font-weight: 600;
@@ -30,25 +32,25 @@
             @media screen and (max-width: 1024px) {
                 font-size: 4rem;
             }
-        }
 
-        .info-box {
-            position: absolute;
-            top: -10rem;
-            right: 0rem;
-            background-color: rgba(255, 217, 0, .2);
-            font-size: 1.5rem;
-            text-align: left;
-            padding: 2rem 1rem 2rem 3rem;
-            border-radius: 10px;
-            border: 1px dashed var(--c-black);
-            transition: .5s;
+            .info-box {
+                position: absolute;
+                top: -15rem;
+                right: -30rem;
+                background-color: rgba(255, 217, 0, .2);
+                font-size: 1.5rem;
+                text-align: left;
+                padding: 2rem 1rem 2rem 3rem;
+                border-radius: 10px;
+                border: 1px dashed var(--c-black);
+                transition: .5s;
 
-            @media screen and (max-width: 767px) {
-                font-size: 1rem;
-                padding: 1.5rem .5rem 1.5rem 2.5rem;
-                top: -7rem;
-                right: 2rem;
+                @media screen and (max-width: 767px) {
+                    font-size: 1rem;
+                    padding: 1.5rem .5rem 1.5rem 2.5rem;
+                    top: -7rem;
+                    right: 2rem;
+                }
             }
         }
     }

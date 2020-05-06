@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Link to="/"><object type="image/svg+xml" data={Logo} aria-label="Logo"></object></Link>
+          <Link className="logo" to="/"><object type="image/svg+xml" data={Logo} aria-label="Logo"></object></Link>
           <Navigation routes={routes}/>
             {
               routes.map(({ path, Component }) => (

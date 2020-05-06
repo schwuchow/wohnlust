@@ -4,24 +4,29 @@
   color: var(--c-dark-grey);
   overflow-x: hidden;
   display: grid;
-  grid-template-rows: 15vh 1fr;
+  grid-template-rows: 15vh 85vh;
   grid-template-columns: 1fr 70% 1fr;
   align-items: center;
   // grid-auto-columns: minmax(100px, auto);
 
-  object {
-    width: 10rem;
-    height: 10rem;
-    margin-left: 3rem;
+  .logo {
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
-    pointer-events: none;
-    transition: .2s;
+
+    object {
+      width: 10rem;
+      height: 10rem;
+      margin-left: 3rem;
+      pointer-events: none;
+    }
+
   }
 
   .fade {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    align-self: start;
+    position: relative;
 
     @media screen and (max-width: 767px) {
       grid-column: 1 / -1;
@@ -30,12 +35,12 @@
 
   .fade-enter {
     opacity: 0.01;
-    transform: translateY(-1rem);
+    // transform: translateY(-1rem);
   }
 
   .fade-enter-active {
     opacity: 1;
-    transform: translateY(0);
+    // transform: translateY(0);
     transition: 300ms ease-in;
   }
 
