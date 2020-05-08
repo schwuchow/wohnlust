@@ -1,7 +1,7 @@
 import React from 'react';
 import './DropdownMenu.scss';
 import { connect } from 'react-redux';
-import { setCityOnDisplay } from './actionDropdownMenu';
+import { setLocationOnDisplay } from './actionDropdownMenu';
 
 class DropdownMenu extends React.Component {
 
@@ -80,7 +80,7 @@ class DropdownMenu extends React.Component {
     }
 
     selectThisAddress = (city) => {
-        this.props.setCityOnDisplay(city);
+        this.props.setLocationOnDisplay(city);
     }
 
     render () {
@@ -100,4 +100,4 @@ class DropdownMenu extends React.Component {
     }
 }
 
-export default connect(null, { setCityOnDisplay })(DropdownMenu);
+export default connect(null, { setLocationOnDisplay })(DropdownMenu);

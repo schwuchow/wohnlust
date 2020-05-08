@@ -1,8 +1,8 @@
-import { CHANGE_CITY_ON_DISPLAY } from '../../actionConstants';
+import { CHANGE_LOCATION_ON_DISPLAY } from '../../actionConstants';
 
 export const dropdownMenuReducer = (state = {}, action) => {
     switch(action.type) {
-        case CHANGE_CITY_ON_DISPLAY: return Object.assign({}, state, { cityOnDisplay: action.payload })
+        case CHANGE_LOCATION_ON_DISPLAY: return Object.assign({}, state, { locationOnDisplay: action.payload })
         default: return state;
     }
 };

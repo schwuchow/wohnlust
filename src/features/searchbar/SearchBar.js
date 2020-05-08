@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.scss';
 import Button from '../../common/button/Button';
-import { setSearchField, setCityOnDisplay, setCurrentNav } from './actionSearchbar';
+import { setSearchField, setLocationOnDisplay, setCurrentNav } from './actionSearchbar';
 import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
@@ -83,7 +83,7 @@ class SearchBar extends React.Component {
     }
 
     saveClickedCity = (city) => {
-        this.props.setCityOnDisplay(city);
+        this.props.setLocationOnDisplay(city);
     }
 
     renderSuggestions = (cities) => {
@@ -143,4 +143,4 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, { setSearchField, setCityOnDisplay, setCurrentNav })(SearchBar);
+export default connect(mapStateToProps, { setSearchField, setLocationOnDisplay, setCurrentNav })(SearchBar);

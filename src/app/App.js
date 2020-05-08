@@ -39,10 +39,10 @@ class App extends React.Component {
                     <CSSTransition
                       in={match != null}
                       timeout={300}
-                      classNames="fade"
+                      classNames="fade-app"
                       unmountOnExit
                     >
-                      <div className="fade">
+                      <div className="fade-app">
                         <Component />
                       </div>
                     </CSSTransition>

@@ -1,6 +1,6 @@
-import { CHANGE_CITY_ON_DISPLAY } from '../../actionConstants';
+import { CHANGE_LOCATION_ON_DISPLAY } from '../../actionConstants';
 
-export const setCityOnDisplay = (city) => ({
-    type: CHANGE_CITY_ON_DISPLAY,
+export const setLocationOnDisplay = (city) => ({
+    type: CHANGE_LOCATION_ON_DISPLAY,
     payload: city
 });

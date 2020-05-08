@@ -20,7 +20,7 @@
 
   }
 
-  .fade {
+  .fade-app {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     align-self: start;
@@ -31,20 +31,20 @@
     }
   }
 
-  .fade-enter {
+  .fade-app-enter {
     opacity: 0.01;
   }
 
-  .fade-enter-active {
+  .fade-app-enter-active {
     opacity: 1;
     transition: 300ms ease-in;
   }
 
-  .fade-exit {
+  .fade-app-exit {
     opacity: 1;
   }
 
-  .fade-exit-active {
+  .fade-app-exit-active {
     opacity: 0;
     transition: 200ms ease-in;
   }
