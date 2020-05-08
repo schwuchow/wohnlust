@@ -74,7 +74,7 @@ nav {
         justify-self: end;
         cursor: pointer;
         transition: .2s;
-        border: 1rem solid rgba(126, 70, 70, 1);
+        border: 1rem solid rgb(143, 64, 64);
         box-shadow: 2px 2px 5px rgba(0,0,0,.5);
         z-index: 3;
 
@@ -99,7 +99,7 @@ nav {
             height: 70rem;
             top: 10rem;
             right: -30rem;
-            background-color: rgba(126, 70, 70, 1);
+            background-color: rgb(143, 64, 64);
             border-radius: 50%;
 
             &::before {
@@ -129,7 +129,7 @@ nav {
         }
 
         .currentNav {
-            background-color: rgba(126, 70, 70, 1);
+            background-color: rgb(143, 64, 64);
 
             &::before,
             &::after {
@@ -150,7 +150,7 @@ nav {
     top: 0;
     left: 0;
     border-radius: 5%;
-    background-color: rgba(182, 102, 102, .1);
+    background-color: rgba(207, 94, 94, .1);
     z-index: -1;
 
     &:hover {

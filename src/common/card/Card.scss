@@ -6,11 +6,16 @@
     padding: 3rem;
     border-radius: 10%;
     box-shadow: 10px 10px 10px rgba(0,0,0, .3), 
-            -10px -10px 20px rgba(255,255,255, 1);
+            -10px -10px 20px rgba(255,255,255, .4);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-size: 2rem;
+
+    img {
+        height: 20%;
+        background-position: center;
+    }
 
     &:hover {
         animation: card 1s ease-in-out;

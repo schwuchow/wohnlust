@@ -1,6 +1,10 @@
 import React from 'react';
 import Card from '../common/card/Card';
 import './layouts.scss';
+// import sofa from '../img/sich-ausruhen.svg';
+import sofa from '../img/moebel-und-haushalt.svg';
+import crown from '../img/sonstiges.svg';
+import people from '../img/plaudern.svg';
 
 const Concept = () => {
 
@@ -11,16 +15,19 @@ const Concept = () => {
         const card1 = {
             title: "Shared living space",
             description: "A huge living room with multiple leisure possibilities",
+            picture: sofa
         };
 
         const card2 = {
             title: "Your own kingdom",
-            description: "A smart built, sustainable single appartment with everything you need"
+            description: "A smart built, sustainable single appartment with everything you need",
+            picture: crown
         };
 
         const card3 = {
             title: "Community driven",
-            description: "A new family to make acquaintance with"
+            description: "A new family to make acquaintance with",
+            picture: people
         };
 
         cards.push(card1);
@@ -38,7 +45,8 @@ const Concept = () => {
             return  <Card
                         key={i}
                         title={card.title}
-                        description={card.description} />
+                        description={card.description}
+                        picture={card.picture}/>
         });
     }
 

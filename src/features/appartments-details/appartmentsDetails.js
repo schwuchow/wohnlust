@@ -1,5 +1,6 @@
 import React from 'react';
 import './appartmentsDetails.scss';
+import plus from '../../img/zeichen.svg';
 
 class AppartmentsDetails extends React.Component {
 
@@ -11,7 +12,7 @@ class AppartmentsDetails extends React.Component {
                 <div>Floor: {this.props.appartmentUnit.floor}</div>
                 <ul><h2>Services</h2>
                     { this.props.appartmentUnit.services.map((service, i) => {
-                        return <li key={i}>- {service}</li>;
+                        return <li key={i}><img src={plus} alt=""></img> {service}</li>;
                     })}
                 </ul>
             </div>

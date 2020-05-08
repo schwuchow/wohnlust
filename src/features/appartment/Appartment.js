@@ -2,6 +2,7 @@ import React from 'react';
 import imgAppartment from '../../img/appartment.svg';
 import imgRoofAppartment from '../../img/appartment_roof.svg';
 import './Appartment.scss';
+import plus from '../../img/zeichen.svg';
 
 class Appartment extends React.Component {
 
@@ -26,7 +27,7 @@ class Appartment extends React.Component {
                 <div>Orientation: {orientation}</div>
                 <ul>Details:
                     {details.map((detail, i) => {
-                        return <li key={i}>- {detail}</li>
+                        return <li key={i}><img src={plus} alt=""></img> {detail}</li>
                     })}
                 </ul>
             </div>
