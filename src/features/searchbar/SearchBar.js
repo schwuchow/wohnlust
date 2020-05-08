@@ -105,6 +105,10 @@ class SearchBar extends React.Component {
         this.props.setCurrentNav(path);
     }
 
+    resetSearchField = () => {
+        this.props.setSearchField('');
+    }
+
     render() {
         return (
             <div className="searchbar">
@@ -123,6 +127,7 @@ class SearchBar extends React.Component {
                         path={this.state.path}
                         color="copper"
                         setCurrentNavOnBtnClick={this.setCurrentNavOnBtnClick}
+                        resetSearchField={this.resetSearchField}
                     />
                 </form>
             </div>

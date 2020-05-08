@@ -10,6 +10,7 @@ const Button = props => {
             case "route":
                 history.push(props.path);
                 props.setCurrentNavOnBtnClick(props.path);
+                props.resetSearchField();
                 break;
             case "send":
                 window.location.href = `mailto:user@example.com?subject=Request for more information&body=${props.message}`; break;
