@@ -30,21 +30,21 @@ class Navigation extends React.Component {
     }
 
     setCurrentNavTab = (e) => {
-        this.setState({ currentNav: e.target.parentElement.dataset.id });
+        this.props.setCurrentNav(e.target.parentElement.dataset.path );
     }
 
     renderNavMenu = (routes) => {
         return (
             <ul>
                 {
-                    routes.map((route, id) => {
+                    routes.map(({path, name}) => {
                         return (
-                            <li key={route.path}
-                                data-id={id}
-                                className={this.state.currentNav === `${id}`? 'currentNav': ''}
+                            <li key={path}
+                                data-path={path}
+                                className={this.props.currentNav === `${path}`? 'currentNav': ''}
                                 onMouseEnter={this.addHighlightAnim}
                                 onClick={this.setCurrentNavTab}>
-                                <Link to={route.path}>{route.name}</Link>
+                                <Link to={path}>{name}</Link>
                             </li>
                         )
                     })
@@ -65,4 +65,10 @@ class Navigation extends React.Component {
     }
 };
 
-export default Navigation;
+const mapStateToProps = state => {
+    return {
+        currentNav: state.navigationReducer.currentNav
+    }
+}
+
+export default connect(mapStateToProps, {setCurrentNav})(Navigation);

@@ -7,7 +7,10 @@ const Button = props => {
 
     const handleBtnClick = () => {
         switch (props.action) {
-            case "route": history.push(props.path); break;
+            case "route":
+                history.push(props.path);
+                props.setCurrentNavOnBtnClick(props.path);
+                break;
             case "send":
                 window.location.href = `mailto:user@example.com?subject=Request for more information&body=${props.message}`; break;
             case "delete": props.delete(); break;

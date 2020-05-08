@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.scss';
 import Button from '../../common/button/Button';
-import { setSearchField, setCityOnDisplay } from './actionSearchbar';
+import { setSearchField, setCityOnDisplay, setCurrentNav } from './actionSearchbar';
 import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
@@ -42,10 +42,6 @@ class SearchBar extends React.Component {
 
     searchValues = (event) => {
         this.props.setSearchField(event.target.value);
-    };
-
-    // TODO
-    moveThroughSuggestions = (event) => {
     };
 
     filterSuggestions = (searchValue, appartmentUnits) => {
@@ -105,6 +101,10 @@ class SearchBar extends React.Component {
         );
     };
 
+    setCurrentNavOnBtnClick = (path) => {
+        this.props.setCurrentNav(path);
+    }
+
     render() {
         return (
             <div className="searchbar">
@@ -113,12 +113,17 @@ class SearchBar extends React.Component {
                         type="text" 
                         placeholder="In"
                         onChange={this.searchValues}
-                        onKeyDown={this.moveThroughSuggestions}
                         value={this.props.searchField}
                         ref={this.input}
                     ></input>
                     {this.renderSuggestions(this.state.filteredUniqueCities)}
-                    <Button text="Search" action="route" path={this.state.path} color="copper" />
+                    <Button
+                        text="Search"
+                        action="route"
+                        path={this.state.path}
+                        color="copper"
+                        setCurrentNavOnBtnClick={this.setCurrentNavOnBtnClick}
+                    />
                 </form>
             </div>
         );
@@ -128,8 +133,9 @@ class SearchBar extends React.Component {
 const mapStateToProps = (state) => {
     return {
         searchField: state.searchbarReducer.searchField,
-        appartmentUnits: state.appReducer.appartmentUnits
+        appartmentUnits: state.appReducer.appartmentUnits,
+        currentNav: state.searchbarReducer.currentNav
     };
 }
 
-export default connect(mapStateToProps, { setSearchField, setCityOnDisplay })(SearchBar);
+export default connect(mapStateToProps, { setSearchField, setCityOnDisplay, setCurrentNav })(SearchBar);

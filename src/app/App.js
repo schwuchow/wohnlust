@@ -50,10 +50,6 @@ class App extends React.Component {
                 </Route>
               ))
             }
-          {/* <Route exact path="/" component={Home} />
-          <Route path="/concept" component={Concept} />
-          <Route path="/appartments" component={Appartments} />
-          <Route path="/story" component={Story} /> */}
         </Router>
       </div>
     );
