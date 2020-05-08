@@ -14,13 +14,14 @@
             background-color: rgba(255, 255, 255, .9);
             margin-right: 1rem;
             padding-left: 1rem;
+            outline: none;
 
             &:hover {
                 border: 2px solid var(--c-light-grey-outline);
             }
 
             &:focus {
-                outline: 2px solid var(--c-grey-outline);
+                border: 2px solid var(--c-grey-outline);
             }
         }
 

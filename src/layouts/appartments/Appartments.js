@@ -60,7 +60,7 @@ class Appartments extends React.Component {
         return (
             <div className="layout layout__appartments">
                 <div className="dropdown-menu-container">
-                    <label className="dropdown-menu-container__city">{displayedCity.location.city}</label>
+                    <label className="dropdown-menu-container__city-label">{displayedCity.location.city}</label>
                     <DropdownMenu currentDisplay={displayedCity} unitList={this.props.appartmentUnits}/>
                 </div>
                 <CSSTransition

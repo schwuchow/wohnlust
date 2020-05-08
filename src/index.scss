@@ -30,7 +30,6 @@
 }
 
 html {
-  // TODO doesnt work??? NOt inherited to other classes
   box-sizing: border-box;
   font-size: 62.5%; // 10px/16px -> 1rem = 10px
   scroll-behavior: smooth;
@@ -53,7 +52,7 @@ body {
     top 60vh right -20vw;
   background-size: 60%;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     background-position:
     top -20vh left 10vw,
     top 50vh right -20vw;

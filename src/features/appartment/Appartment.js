@@ -75,7 +75,7 @@ class Appartment extends React.Component {
                 className={`appartment ${'appartment--' + this.props.orientation} ${this.state.showDetails? `anim-${this.props.orientation}`: ''}`}
                 onClick={() => this.handleClick(this.props.orientation)}
                 ref={this.appartment}>
-                <label>Room {roomLetter}</label>
+                <label className="appartment__room-label">Room {roomLetter}</label>
                 <img src={imgAppartment} className="appartment__room" alt="Appartment" />
                 <img src={imgRoofAppartment} className="appartment__roof" alt="Appartment"/>
                 {this.showProps()}

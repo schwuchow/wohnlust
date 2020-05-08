@@ -19,6 +19,10 @@
 
     & > *:not(h1) {
         padding: 1rem 3rem;
+
+        @media screen and (max-width: 768px) {
+            padding: 1rem 1rem;
+        }
     }
 
     ul {
@@ -35,5 +39,10 @@
         li {
             padding-left: 2rem;   
         }
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 0.7em;
+        padding: 1rem;
     }
 }

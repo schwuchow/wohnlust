@@ -18,6 +18,11 @@
       pointer-events: none;
     }
 
+    @media screen and (max-width: 768px) {
+      width: 6rem;
+      height: 6rem;
+    }
+
   }
 
   .fade-app {
@@ -26,7 +31,7 @@
     align-self: start;
     position: relative;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
       grid-column: 1 / -1;
     }
   }
@@ -47,5 +52,13 @@
   .fade-app-exit-active {
     opacity: 0;
     transition: 200ms ease-in;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
   }
 }
