@@ -3,6 +3,7 @@ import Card from '../common/card/Card';
 import './layouts.scss';
 import sofa from '../img/sofa.svg';
 import crown from '../img/crown.svg';
+import people from '../img/people.svg';
 
 const Concept = () => {
 
@@ -25,7 +26,7 @@ const Concept = () => {
         const card3 = {
             title: "Community driven",
             description: "A new family to make acquaintance with",
-            picture: sofa
+            picture: people
         };
 
         cards.push(card1);

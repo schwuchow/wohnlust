@@ -19,6 +19,16 @@ class Appartments extends React.Component {
         this.appartmentContainer = React.createRef();
     }
 
+    componentDidMount = () => {
+        if (!this.props.locationOnDisplay && this.props.appartmentUnits) {
+            const defaultDisplayedCity = this.props.appartmentUnits[0];
+            this.props.setLocationOnDisplay(defaultDisplayedCity);
+        } else {
+            return;
+        }
+
+    }
+
     setCurrentylyAnimEl = (childOrientation) => {
         this.appartmentContainer.current.lastChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
@@ -92,9 +102,7 @@ class Appartments extends React.Component {
 
         } else if (this.props.appartmentUnits) {
             const defaultDisplayedCity = this.props.appartmentUnits[0];
-            this.props.setLocationOnDisplay(defaultDisplayedCity);
             return this.renderAppartments(defaultDisplayedCity);
-
         } else {
             return (
                 <div></div>
