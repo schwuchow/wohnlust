@@ -1,4 +1,6 @@
 .appartments-details {
+    grid-column: 1 / 4;
+    align-self: start;
     text-align: left;
     background: rgba(255,255,255,.2);
     font-size: .8em;
@@ -41,6 +43,13 @@
 
             img {
                 width: 3%;
+                transition: .2s;
+            }
+
+            &:hover {
+                img {
+                    transform: rotate(135deg);
+                }
             }
         }
     }
@@ -49,5 +58,16 @@
         font-size: 0.7em;
         padding: 2rem;
         box-shadow: none;
+    }
+}
+
+.anim-details {
+    animation: anim-details .6s ease-in-out;
+}
+
+@keyframes anim-details {
+    0% {
+        transform: translateY(-5%);
+        opacity: 0;
     }
 }

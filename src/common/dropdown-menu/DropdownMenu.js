@@ -81,6 +81,7 @@ class DropdownMenu extends React.Component {
 
     selectThisAddress = (city) => {
         this.props.setLocationOnDisplay(city);
+        this.props.startAnim();
     }
 
     render () {

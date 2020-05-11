@@ -2,7 +2,7 @@ import React from 'react';
 import imgAppartment from '../../img/appartment.svg';
 import imgRoofAppartment from '../../img/appartment_roof.svg';
 import './Appartment.scss';
-import plus from '../../img/zeichen.svg';
+import plus from '../../img/plus.svg';
 
 class Appartment extends React.Component {
 
@@ -35,7 +35,6 @@ class Appartment extends React.Component {
     }
 
     handleClick = (orientation) => {
-
         if (!this.state.showDetails) {
             this.props.setOrientationInParent(`anim-${orientation}`);
         } else {
@@ -43,19 +42,6 @@ class Appartment extends React.Component {
         }
 
         this.setState({showDetails: !this.state.showDetails});
-
-        // window.setTimeout(() => {
-        //     this.appartment.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // }, 900);
-
-        // window.addEventListener('transitionend', () => {
-        //     window.scrollTo({
-        //         top: this.appartment.current.offsetTop/2,
-        //         left: 0,
-        //         behavior: 'smooth'
-        //     });
-        //     // this.appartment.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // });
     }
 
     mapOrientationToRoomLetter = () => {
@@ -76,9 +62,9 @@ class Appartment extends React.Component {
                 className={`appartment ${'appartment--' + this.props.orientation} ${this.state.showDetails? `anim-${this.props.orientation}`: ''}`}
                 onClick={() => this.handleClick(this.props.orientation)}
                 ref={this.appartment}>
-                <label className="appartment__room-label">Room {roomLetter}</label>
                 <img src={imgAppartment} className="appartment__room" alt="Appartment" />
                 <img src={imgRoofAppartment} className="appartment__roof" alt="Appartment"/>
+                <label className="appartment__room-label">Room {roomLetter}</label>
                 {this.showProps()}
             </div>
         )

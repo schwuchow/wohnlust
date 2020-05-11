@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import '../layouts.scss';
 import { setLocationOnDisplay } from './actionAppartments';
 import sharedLivingSpace from '../../img/shared_living_space.svg';
-import { CSSTransition } from 'react-transition-group';
 
 class Appartments extends React.Component {
 
@@ -21,20 +20,14 @@ class Appartments extends React.Component {
     }
 
     setCurrentylyAnimEl = (childOrientation) => {
-        this.setState({currentlyAnimatedEl: childOrientation});
+        this.appartmentContainer.current.lastChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         window.setTimeout(() => {
-        this.appartmentContainer.current.lastChild.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-        }, 1000);
+            this.setState({currentlyAnimatedEl: childOrientation});
+        }, 200);
     }
 
-    componentDidUpdate = (prevProps) => {
-        // Needs more thought
-        if (prevProps.locationOnDisplay !== this.props.locationOnDisplay) {
-            this.setState({addAnimToContainer: !this.state.addAnimToContainer});
-            // this.setState({addAnimToContainer: this.props.locationOnDisplay.location.street});
-        }
-
+    componentDidUpdate = () => {
         if (this.appartmentContainer && this.appartmentContainer.current.childNodes) {
             const children = Array.from(this.appartmentContainer.current.childNodes);
             const isAnimated = children.filter(child => child.classList.contains(this.state.currentlyAnimatedEl));
@@ -54,6 +47,14 @@ class Appartments extends React.Component {
         }
     }
 
+    startAnim = () => {
+        this.setState({addAnimToContainer: true});
+    }
+
+    resetAnim = () => {
+        this.setState({addAnimToContainer: false});
+    }
+
     renderAppartments = (displayedCity) => {
         const appartments = displayedCity.appartments;
 
@@ -61,17 +62,9 @@ class Appartments extends React.Component {
             <div className="layout layout__appartments">
                 <div className="dropdown-menu-container">
                     <label className="dropdown-menu-container__city-label">{displayedCity.location.city}</label>
-                    <DropdownMenu currentDisplay={displayedCity} unitList={this.props.appartmentUnits}/>
+                    <DropdownMenu currentDisplay={displayedCity} unitList={this.props.appartmentUnits} startAnim={this.startAnim}/>
                 </div>
-                <CSSTransition
-                    in={this.state.addAnimToContainer}
-                    timeout={300}
-                    classNames="fade-appartment"
-                >
-                    <div className="fade-appartment" onAnimationEnd={() => this.setState({addAnimToContainer: false})}>
-                        <AppartmentsDetails appartmentUnit={displayedCity}/>
-                    </div>
-                </CSSTransition>
+                <AppartmentsDetails appartmentUnit={displayedCity} animDetails={this.state.addAnimToContainer} resetAnim={this.resetAnim}/>
                 <div className="appartment-container" ref={this.appartmentContainer}>
                     <h1>Room Details</h1>
                     {

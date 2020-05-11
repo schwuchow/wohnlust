@@ -1,10 +1,8 @@
 import React from 'react';
 import Card from '../common/card/Card';
 import './layouts.scss';
-// import sofa from '../img/sich-ausruhen.svg';
-import sofa from '../img/moebel-und-haushalt.svg';
-import crown from '../img/sonstiges.svg';
-import people from '../img/plaudern.svg';
+import sofa from '../img/sofa.svg';
+import crown from '../img/crown.svg';
 
 const Concept = () => {
 
@@ -27,7 +25,7 @@ const Concept = () => {
         const card3 = {
             title: "Community driven",
             description: "A new family to make acquaintance with",
-            picture: people
+            picture: sofa
         };
 
         cards.push(card1);

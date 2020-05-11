@@ -1,12 +1,12 @@
 import React from 'react';
 import './appartmentsDetails.scss';
-import plus from '../../img/zeichen.svg';
+import plus from '../../img/plus.svg';
 
 class AppartmentsDetails extends React.Component {
 
     render = () => {
         return (
-            <div className="appartments-details">
+            <div className={this.props.animDetails? "appartments-details anim-details": "appartments-details"} onAnimationEnd={() => this.props.resetAnim()}>
                 <h1>Appartment Properties</h1>
                 <div>Year Of Construction: {this.props.appartmentUnit.yearOFConstruction}</div>
                 <div>Floor: {this.props.appartmentUnit.floor}</div>
