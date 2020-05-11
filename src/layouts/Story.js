@@ -21,7 +21,7 @@ const Story = () => {
 
         function handleObserve(entries) {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.intersectionRatio === 1) {
                     setShowEl(entry.target.dataset.id);
                 }
             });

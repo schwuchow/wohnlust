@@ -13,8 +13,12 @@
     font-size: 1.8rem;
 
     img {
-        height: 20%;
+        height: 23%;
         background-position: center;
+    }
+
+    &:first-of-type img {
+        height: 18%;
     }
 
     &:hover {
