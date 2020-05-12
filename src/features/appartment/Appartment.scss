@@ -48,10 +48,10 @@
 
             img {
                 width: 2%;
-                transition: transform .2s;
             }
 
             &:hover {
+
                 img {
                     transform: rotate(135deg);
                 }
