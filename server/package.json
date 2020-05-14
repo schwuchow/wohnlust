@@ -17,7 +17,6 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "cd ../client && npm install && npm run build",
     "startServer": "DEBUG=http nodemon src/server/server.js"
   },
   "author": "",
