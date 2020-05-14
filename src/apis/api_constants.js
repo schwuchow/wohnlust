@@ -1,1 +1,1 @@
-export const appartmentUnitsURL = 'http://localhost:3001/appartments';
+export const appartmentUnitsURL = '/api/appartments';
