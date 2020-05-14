@@ -16,7 +16,6 @@ app.use(helmet())
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'build')))
 app.use('/api/appartments', appartmentsRoute);
 
 // Connect to DB
@@ -26,5 +25,13 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect(process.env.DB_CONNECTION, () => {
     log('connected to DB');
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    })
+}
 
 app.listen(process.env.PORT || 3001);

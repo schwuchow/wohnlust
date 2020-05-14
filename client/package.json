@@ -1,22 +1,13 @@
 {
-  "name": "wohnlust",
+  "name": "wohnlustclient",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@hapi/joi": "^17.1.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "debug": "^4.1.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "helmet": "^3.22.0",
     "http-proxy-middleware": "^1.0.3",
-    "mongoose": "^5.9.14",
     "node-sass": "^4.14.1",
-    "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -32,8 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "startServer": "DEBUG=http nodemon src/server/server.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
