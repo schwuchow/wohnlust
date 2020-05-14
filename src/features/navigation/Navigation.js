@@ -1,13 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navigation.scss';
+import { setCurrentNav } from './actionNavigation';
+import { connect } from 'react-redux';
 
 class Navigation extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.state = {highlightStyles: {}};
+        this.state = {
+            highlightStyles: {},
+            windowWidth: 0,
+        };
+    }
+
+    componentDidMount = () => {
+        this.updateWindowWidth();
+        window.addEventListener('resize', this.updateWindowWidth);
+    }
+
+    updateWindowWidth = () => {
+        this.setState({windowWidth: window.innerWidth});
+    }
+
+    openNavigation = () => {
+        if (this.state.windowWidth < 767) {
+            console.log("open");
+        }
     }
 
     addHighlightTag = () => {
