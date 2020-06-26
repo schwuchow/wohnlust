@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.scss';
 import Button from '../../common/button/Button';
-import { setSearchField, setLocationOnDisplay, setCurrentNav } from './actionSearchbar';
+import { setLocationOnDisplay, setCurrentNav } from './actionSearchbar';
 import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
@@ -10,6 +10,7 @@ class SearchBar extends React.Component {
         super(props);
 
         this.state = {
+            searchField: '',
             filteredUniqueCities: [],
             path: '/appartments'
          };
@@ -32,16 +33,16 @@ class SearchBar extends React.Component {
         }
     };
 
-    componentDidUpdate = (prevProps) => {
-        if ((prevProps.searchField !== this.props.searchField)
+    componentDidUpdate = (prevProps, prevState) => {
+        if ((prevState.searchField !== this.state.searchField)
             && this.props.appartmentUnits !== undefined) {
-            let {searchField, appartmentUnits} = this.props;
-            this.filterSuggestions(searchField, appartmentUnits);
+                console.log(prevState.searchField);
+            this.filterSuggestions(this.state.searchField, this.props.appartmentUnits);
         }
     }
 
     searchValues = (event) => {
-        this.props.setSearchField(event.target.value);
+        this.setState({ searchField: event.target.value});
     };
 
     filterSuggestions = (searchValue, appartmentUnits) => {
@@ -67,9 +68,8 @@ class SearchBar extends React.Component {
     }
 
     getUniqueFilteredCities = (filteredCities) => {
-        return filteredCities.filter((city, i, cityArr) => {
-            if (i >= 5) return true;
-            return cityArr.map(c => c.location.city).indexOf(city.location.city) === i;
+        return filteredCities.filter((appartmentUnit, i, appartmentUnitArr) => {
+            return appartmentUnitArr.map(a => a.location.city).indexOf(appartmentUnit.location.city) === i;
         });
     }
 
@@ -77,13 +77,13 @@ class SearchBar extends React.Component {
         return (uniqueCities.length === 1 && searchValue.toLowerCase() === uniqueCities[0].location.city.toLowerCase())
     }
 
-    handleClickedCity = (city) => {
-        this.saveClickedCity(city);
-        this.props.setSearchField(city.location.city);
+    handleClickedCity = (appartmentUnit) => {
+        this.saveClickedCity(appartmentUnit);
+        this.setState({ searchField: appartmentUnit.location.city });
     }
 
-    saveClickedCity = (city) => {
-        this.props.setLocationOnDisplay(city);
+    saveClickedCity = (appartmentUnit) => {
+        this.props.setLocationOnDisplay(appartmentUnit);
     }
 
     renderSuggestions = (cities) => {
@@ -106,7 +106,7 @@ class SearchBar extends React.Component {
     }
 
     resetSearchField = () => {
-        this.props.setSearchField('');
+        this.setState({ searchField: '' });
     }
 
     render() {
@@ -117,7 +117,7 @@ class SearchBar extends React.Component {
                         type="text" 
                         placeholder="In"
                         onChange={this.searchValues}
-                        value={this.props.searchField}
+                        value={this.state.searchField}
                         ref={this.input}
                     ></input>
                     {this.renderSuggestions(this.state.filteredUniqueCities)}
@@ -137,10 +137,9 @@ class SearchBar extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        searchField: state.searchbarReducer.searchField,
         appartmentUnits: state.appReducer.appartmentUnits,
         currentNav: state.searchbarReducer.currentNav
     };
 }
 
-export default connect(mapStateToProps, { setSearchField, setLocationOnDisplay, setCurrentNav })(SearchBar);
+export default connect(mapStateToProps, { setLocationOnDisplay, setCurrentNav })(SearchBar);

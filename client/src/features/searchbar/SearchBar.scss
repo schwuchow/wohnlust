@@ -15,6 +15,7 @@
             margin-right: 1rem;
             padding-left: 1rem;
             outline: none;
+            border: 1px solid var(--c-lightest-grey-outline);
 
             &:hover {
                 border: 2px solid var(--c-light-grey-outline);
